@@ -1,10 +1,9 @@
 ﻿using System.Windows.Input;
-using StateButton.Handler;
 
 namespace StateButton;
 
 [ContentProperty(nameof(Content))]
-public partial class StateButton : Border, IStateButton
+public partial class StateButton : Border
 {
 	#region Bindable Properties
 
@@ -137,21 +136,18 @@ public partial class StateButton : Border, IStateButton
 		InitializeComponent();
 	}
 
-	internal void PressedGesture()
+	void ButtonGestureBehavior_Clicked(object sender, EventArgs e)
 	{
 		if (!IsEnabled)
 		{
 			return;
 		}
 
-		Pressed?.Invoke(this, EventArgs.Empty);
-		PressedCommand?.Execute(PressedCommandParameter);
-
-		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.Pressed));
-		State = ButtonStateEnum.Pressed;
+		Clicked?.Invoke(this, EventArgs.Empty);
+		ClickedCommand?.Execute(ClickedCommandParameter);
 	}
 
-	internal void ReleasedGesture()
+	void ButtonGestureBehavior_Released(object sender, EventArgs e)
 	{
 		if (!IsEnabled)
 		{
@@ -170,14 +166,17 @@ public partial class StateButton : Border, IStateButton
 		State = ButtonStateEnum.NotPressed;
 	}
 
-	internal void ClickedGesture()
+	void ButtonGestureBehavior_Pressed(object sender, EventArgs e)
 	{
 		if (!IsEnabled)
 		{
 			return;
 		}
 
-		Clicked?.Invoke(this, EventArgs.Empty);
-		ClickedCommand?.Execute(ClickedCommandParameter);
+		Pressed?.Invoke(this, EventArgs.Empty);
+		PressedCommand?.Execute(PressedCommandParameter);
+
+		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.Pressed));
+		State = ButtonStateEnum.Pressed;
 	}
 }

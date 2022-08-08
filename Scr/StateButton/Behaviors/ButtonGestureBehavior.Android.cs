@@ -1,30 +1,21 @@
 ﻿using Android.Views;
 using Android.Views.Accessibility;
-using Microsoft.Maui.Handlers;
-using Microsoft.Maui.Platform;
-using static Android.Views.View;
 
-namespace StateButton.Handler;
-public partial class StateButtonHandler : ViewHandler<IStateButton, ContentViewGroup>
+namespace StateButton.Behaviors;
+public partial class ButtonGestureBehavior
 {
-	protected override ContentViewGroup CreatePlatformView()
-	{
-		return new ContentViewGroup(Context);
-	}
-
 	Rect _rect;
-	protected override void ConnectHandler(ContentViewGroup platformView)
+	protected override void OnAttachedTo(Microsoft.Maui.Controls.View bindable, Android.Views.View platformView)
 	{
-		base.ConnectHandler(platformView);
+		base.OnAttachedTo(bindable, platformView);
 
 		platformView.SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
 		platformView.Touch += (sender, te) =>
 		{
 			Android.Views.View? v = sender as Android.Views.View;
-			StateButton? sharedControl = sender as StateButton;
 
-			if (v is null || sharedControl is null)
+			if (v is null)
 			{
 				return;
 			}
@@ -34,29 +25,29 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, ContentViewG
 				case MotionEventActions.Down:
 					_rect = new Rect(v.Left, v.Top, v.Right, v.Bottom);
 
-					sharedControl.PressedGesture();
+					Pressed?.Invoke(this, new EventArgs());
 					break;
 
 				case MotionEventActions.Up:
 					if (_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
 					{
-						sharedControl.ReleasedGesture();
-						sharedControl.ClickedGesture();
+						Released?.Invoke(this, new EventArgs());
+						Clicked?.Invoke(this, new EventArgs());
 					}
 					else
 					{
-						sharedControl.ReleasedGesture();
+						Released?.Invoke(this, new EventArgs());
 					}
 					break;
 
 				case MotionEventActions.Cancel:
-					sharedControl.ReleasedGesture();
+					Released?.Invoke(this, new EventArgs());
 
 					break;
 				case MotionEventActions.Move:
 					if (!_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
 					{
-						sharedControl.ReleasedGesture();
+						Released?.Invoke(this, new EventArgs());
 					}
 
 					break;
@@ -64,17 +55,17 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, ContentViewG
 		};
 	}
 
-	class MyAccessibilityDelegate : AccessibilityDelegate
+	class MyAccessibilityDelegate : Android.Views.View.AccessibilityDelegate
 	{
 		public override void OnInitializeAccessibilityNodeInfo(Android.Views.View? host, AccessibilityNodeInfo? info)
 		{
 			base.OnInitializeAccessibilityNodeInfo(host, info);
 
-			if(info is null)
+			if (info is null)
 			{
 				return;
 			}
-			
+
 			info.ClassName = "android.widget.Button";
 			info.Clickable = true;
 		}

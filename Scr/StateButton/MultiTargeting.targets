@@ -1,21 +1,14 @@
 ﻿<Project>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.iOS')) != true AND $(TargetFramework.StartsWith('net6.0-ios')) != true ">
-    <Compile Remove="Platforms\iOS\*.cs" />
-    <None Include="Platforms\iOS\*.cs" />
+    <Compile Remove="**\*.ios.cs" />
+    <None Include="**\*.ios.cs" />
   </ItemGroup>
 
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid')) != true AND $(TargetFramework.StartsWith('net6.0-android')) != true ">
-    <Compile Remove="Platforms\Android\*.cs" />
-    <None Include="Platforms\Android\*.cs" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) == true OR $(TargetFramework.StartsWith('net6.0-android')) == true">
-    <Compile Remove="**\*.Standard.cs" />
-    <None Include="**\*.Standard.cs" />
-    <Compile Remove="**\Standard\**\*.cs" />
-    <None Include="**\Standard\**\*.cs" />
+    <Compile Remove="**\*.android.cs" />
+    <None Include="**\*.android.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net6.0-android;net6.0-ios;</TargetFrameworks>
@@ -12,11 +12,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Update="Behaviors\ButtonGestureBehavior.Android.cs">
+	    <ExcludeFromCurrentConfiguration>true</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Behaviors\ButtonGestureBehavior.cs">
+	    <ExcludeFromCurrentConfiguration>true</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Behaviors\ButtonGestureBehavior.ios.cs">
+	    <ExcludeFromCurrentConfiguration>true</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="StateButton.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
   <Import Project="MultiTargeting.targets" />
-
 </Project>

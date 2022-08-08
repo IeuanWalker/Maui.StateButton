@@ -2,4 +2,10 @@
 <Border x:Class="StateButton.StateButton"
         xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        BackgroundColor="Transparent" />
+        xmlns:local="clr-namespace:StateButton.Behaviors">
+    <Border.Behaviors>
+        <local:ButtonGestureBehavior Clicked="ButtonGestureBehavior_Clicked"
+                                     Pressed="ButtonGestureBehavior_Pressed"
+                                     Released="ButtonGestureBehavior_Released" />
+    </Border.Behaviors>
+</Border>
