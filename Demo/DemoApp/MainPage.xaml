@@ -8,7 +8,22 @@
         <app:TestViewModel />
     </ContentPage.BindingContext>
     <ScrollView>
-        <StackLayout Padding="20,10">
+        <VerticalStackLayout Padding="20,10">
+            <stateButton:StateButton Padding="20"
+                                     BackgroundColor="Red"
+                                     Clicked="StateButton_OnClicked">
+                <Label Text="Where is the background color?" TextColor="Black">
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                     TargetType="Label"
+                                     Value="Pressed">
+                            <Setter Property="TextColor" Value="Blue" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </stateButton:StateButton>
+
+
             <Button Clicked="BtnNotInScrollView_Clicked" Text="Test button not in scroll view" />
 
             <!-- Events -->
@@ -168,34 +183,6 @@
                      BackgroundColor="LightGray"
                      HeightRequest="1"
                      HorizontalOptions="Fill" />
-            <!-- Visual state manager -->
-            <Label FontSize="Large" Text="Visual state manager" />
-            <stateButton:StateButton HorizontalOptions="Center">
-                <stateButton:StateButton.Content>
-                    <Border Padding="20,10" BackgroundColor="Red">
-                        <Label Text="Test" TextColor="White" />
-                    </Border>
-                </stateButton:StateButton.Content>
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup Name="ButtonStates">
-                        <VisualState Name="Pressed">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="Blue" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState Name="NotPressed">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="Red" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </stateButton:StateButton>
-
-            <BoxView Margin="0,30"
-                     BackgroundColor="LightGray"
-                     HeightRequest="1"
-                     HorizontalOptions="Fill" />
             <!-- Complex -->
             <Label FontSize="Large" Text="Complex" />
             <stateButton:StateButton Clicked="Card_OnClicked" HorizontalOptions="Fill">
@@ -315,6 +302,6 @@
                     </Border>
                 </stateButton:StateButton.Content>
             </stateButton:StateButton>
-        </StackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

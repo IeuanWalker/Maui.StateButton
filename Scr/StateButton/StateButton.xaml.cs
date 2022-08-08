@@ -2,7 +2,6 @@
 
 namespace StateButton;
 
-[ContentProperty(nameof(Content))]
 public partial class StateButton : Border
 {
 	#region Bindable Properties
@@ -161,7 +160,6 @@ public partial class StateButton : Border
 		Released?.Invoke(this, EventArgs.Empty);
 		ReleasedCommand?.Execute(ReleasedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.NotPressed));
 		State = ButtonStateEnum.NotPressed;
 	}
 
@@ -175,7 +173,6 @@ public partial class StateButton : Border
 		Pressed?.Invoke(this, EventArgs.Empty);
 		PressedCommand?.Execute(PressedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.Pressed));
 		State = ButtonStateEnum.Pressed;
 	}
 }

@@ -2,7 +2,7 @@
 using Android.Views.Accessibility;
 
 namespace StateButton.Behaviors;
-public partial class ButtonGestureBehavior
+partial class ButtonGestureBehavior
 {
 	Rect _rect;
 	protected override void OnAttachedTo(Microsoft.Maui.Controls.View bindable, Android.Views.View platformView)

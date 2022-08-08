@@ -1,7 +1,7 @@
 ﻿using UIKit;
 
 namespace StateButton.Behaviors;
-public partial class ButtonGestureBehavior
+partial class ButtonGestureBehavior
 {
 	protected override void OnAttachedTo(View bindable, UIView platformView)
 	{

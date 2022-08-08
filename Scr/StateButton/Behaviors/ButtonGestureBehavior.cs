@@ -1,6 +1,6 @@
 ﻿namespace StateButton.Behaviors;
 
-public partial class ButtonGestureBehavior : PlatformBehavior<View>
+partial class ButtonGestureBehavior : PlatformBehavior<View>
 {
 	/// <summary>
 	/// Event that is triggered when button is pressed. This is a bindable property.
