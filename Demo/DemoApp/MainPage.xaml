@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="DemoApp.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:DemoApp.ViewModels;assembly=DemoApp"
+             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton">
+    <ContentPage.BindingContext>
+        <app:TestViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="20,10">
+            <Button Clicked="BtnNotInScrollView_Clicked" Text="Test button not in scroll view" />
+
+            <!-- Events -->
+            <Label FontSize="Large" Text="Events" />
+            <Label FontSize="Medium" Text="Clicked" />
+            <stateButton:StateButton AutomationProperties.IsInAccessibleTree="True"
+                                     AutomationProperties.Name="Test"
+                                     Clicked="StateButton_OnClicked"
+                                     HorizontalOptions="Center">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+            <Label FontSize="Medium" Text="Pressed" />
+            <stateButton:StateButton HorizontalOptions="Center" Pressed="StateButton_OnPressed">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+            <Label FontSize="Medium" Text="Released" />
+            <stateButton:StateButton HorizontalOptions="Center" Released="StateButton_OnReleased">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+
+            <BoxView Margin="0,30"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill" />
+            <!-- Commands -->
+            <Label FontSize="Large" Text="Commands" />
+            <Label FontSize="Medium" Text="Clicked" />
+            <stateButton:StateButton ClickedCommand="{Binding ClickedCommand}" HorizontalOptions="Center">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+            <Label FontSize="Medium" Text="Pressed" />
+            <stateButton:StateButton HorizontalOptions="Center" PressedCommand="{Binding PressedCommand}">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+            <Label FontSize="Medium" Text="Released" />
+            <stateButton:StateButton HorizontalOptions="Center" ReleasedCommand="{Binding ReleasedCommand}">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+
+            <BoxView Margin="0,30"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill" />
+            <!-- Visual state manager -->
+            <Label FontSize="Large" Text="Visual state manager" />
+            <stateButton:StateButton HorizontalOptions="Center">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Label Text="Test" TextColor="White" />
+                    </Frame>
+                </stateButton:StateButton.Content>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="ButtonStates">
+                        <VisualState Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="NotPressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </stateButton:StateButton>
+
+            <BoxView Margin="0,30"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill" />
+            <!-- Complex -->
+            <Label FontSize="Large" Text="Complex" />
+            <stateButton:StateButton Clicked="Card_OnClicked" HorizontalOptions="Fill">
+                <stateButton:StateButton.Behaviors>
+                    <!--<xct:AnimationBehavior EventName="Clicked">
+                        <xct:AnimationBehavior.AnimationType>
+                            <xct:ShakeAnimation />
+                        </xct:AnimationBehavior.AnimationType>
+                    </xct:AnimationBehavior>-->
+                </stateButton:StateButton.Behaviors>
+                <stateButton:StateButton.Content>
+                    <Frame Padding="0"
+                           BorderColor="LightGray"
+                           CornerRadius="10">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BorderColor" Value="Gray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <StackLayout>
+                            <Label Margin="20"
+                                   FontSize="26"
+                                   HorizontalOptions="Center"
+                                   Text="Test">
+                                <Label.Triggers>
+                                    <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                                 TargetType="Label"
+                                                 Value="Pressed">
+                                        <Setter Property="FontAttributes" Value="Bold" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Image Source="https://instabug.com/blog/wp-content/uploads/2018/10/Oct_Articles_01_Xamarin.png" />
+                            <Label x:Name="Description"
+                                   Margin="20,0"
+                                   AutomationProperties.IsInAccessibleTree="True"
+                                   FontSize="Default"
+                                   HorizontalOptions="Center"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="3"
+                                   Text="I'm baby vape jean shorts hammock air plant gluten-free thundercats, DIY kale chips master cleanse kickstarter vinyl cronut iceland. Coloring book cold-pressed cray authentic seitan. Snackwave bicycle rights ramps hoodie shaman readymade. Kitsch venmo hella pug, chillwave squid four dollar toast hashtag." />
+                            <Label Margin="20,0,20,10"
+                                   AutomationProperties.IsInAccessibleTree="True"
+                                   HorizontalOptions="End"
+                                   HorizontalTextAlignment="End"
+                                   Text="See more..."
+                                   TextColor="Blue">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Button Margin="20,0"
+                                    Clicked="Button_OnClicked"
+                                    Text="XF button" />
+                            <stateButton:StateButton Margin="0,20,0,0"
+                                                     Clicked="NestButton_OnClicked"
+                                                     HorizontalOptions="Fill">
+                                <stateButton:StateButton.Content>
+                                    <Frame Padding="20,20">
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Offset="0.1" Color="#015b66" />
+                                                <GradientStop Offset="1.0" Color="#259879" />
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <Frame.Triggers>
+                                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                                         TargetType="Frame"
+                                                         Value="Pressed">
+                                                <Setter Property="Background">
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                        <GradientStop Offset="1.0" Color="Red" />
+                                                        <GradientStop Offset="0.1" Color="Orange" />
+                                                    </LinearGradientBrush>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Frame.Triggers>
+                                        <Label Text="Nested state button" TextColor="White" />
+                                    </Frame>
+                                </stateButton:StateButton.Content>
+                            </stateButton:StateButton>
+                        </StackLayout>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+
+            <BoxView Margin="0,30"
+                     BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill" />
+            <!-- Experiment -->
+            <Label FontSize="Large" Text="Experiment" />
+            <stateButton:StateButton HorizontalOptions="Fill">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0.1" Color="#015b66" />
+                                <GradientStop Offset="1.0" Color="#259879" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="Background">
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                        <GradientStop Offset="1.0" Color="Red" />
+                                        <GradientStop Offset="0.1" Color="Orange" />
+                                    </LinearGradientBrush>
+                                </Setter>
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White" />
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

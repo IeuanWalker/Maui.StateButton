@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="DemoApp.ButtonNotInScrollViewPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <stateButton:StateButton AutomationProperties.IsInAccessibleTree="True"
+                                     AutomationProperties.Name="Test"
+                                     Clicked="StateButton_Clicked"
+                                     HorizontalOptions="Center"
+                                     Released="StateButton_Released">
+                <stateButton:StateButton.Content>
+                    <Frame Padding="20,10" BackgroundColor="Red">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Frame"
+                                         Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="LightGray" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="Test" TextColor="White">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="TextColor" Value="Blue" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
