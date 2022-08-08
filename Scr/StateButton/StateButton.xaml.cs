@@ -3,7 +3,7 @@
 namespace StateButton;
 
 [ContentProperty(nameof(Content))]
-public partial class StateButton : Border, IStateButton
+public partial class StateButton : Border
 {
 	#region Bindable Properties
 
@@ -22,6 +22,7 @@ public partial class StateButton : Border, IStateButton
 	}
 
 	#endregion Bindable Properties
+
 
 	#region Commands
 

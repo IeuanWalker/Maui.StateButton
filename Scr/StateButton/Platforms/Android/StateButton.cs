@@ -1,21 +1,32 @@
 ﻿using Android.Views;
-using Microsoft.Maui.Handlers;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Platform;
 
 namespace StateButton;
-public partial class StateButtonHandler : BorderHandler
+public partial class StateButton : Border
 {
-	Rect _rect;
-	protected override void ConnectHandler(ContentViewGroup platformView)
+
+	protected override void ConnectHandler()
 	{
-		base.ConnectHandler(platformView);
+		
+	}
+	Rect _rect;
+	protected override void OnHandlerChanged()
+	{
+		base.OnHandlerChanged();
+
+		ContentViewGroup? platformView = Handler?.PlatformView as ContentViewGroup;
+
+		if (platformView == null)
+		{
+			return;
+		}
 
 		platformView.Touch += (sender, te) =>
 		{
 			Android.Views.View? v = (Android.Views.View?)sender;
-			StateButton? sharedControl = (StateButton?)VirtualView;
 
-			if (v is null || sharedControl is null || te.Event is null)
+			if (v is null || te.Event is null)
 			{
 				return;
 			}
@@ -25,31 +36,28 @@ public partial class StateButtonHandler : BorderHandler
 				case MotionEventActions.Down:
 					_rect = new Rect(v.Left, v.Top, v.Right, v.Bottom);
 
-					sharedControl.PressedGesture();
+					PressedGesture();
 					break;
 
 				case MotionEventActions.Up:
 					if (_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
 					{
-						sharedControl.ReleasedGesture();
-						sharedControl.ClickedGesture();
+						ReleasedGesture();
+						ClickedGesture();
 					}
 					else
 					{
-						sharedControl.ReleasedGesture();
+						ReleasedGesture();
 					}
 					break;
 
 				case MotionEventActions.Cancel:
-					sharedControl.ReleasedGesture();
+					ReleasedGesture();
 					break;
 				case MotionEventActions.Move:
-					sharedControl.ReleasedGesture();
+					ReleasedGesture();
 					break;
 			}
 		};
-
-
-		base.ConnectHandler(platformView);
-	}
+	}	
 }
