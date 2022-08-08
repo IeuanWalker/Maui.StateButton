@@ -1,13 +1,19 @@
 ﻿using Android.Views;
 using Android.Views.Accessibility;
 using Microsoft.Maui.Handlers;
+using Microsoft.Maui.Platform;
 using static Android.Views.View;
 
 namespace StateButton.Handler;
-public partial class StateButtonHandler : ViewHandler<IStateButton, Microsoft.Maui.Platform.ContentViewGroup>
+public partial class StateButtonHandler : ViewHandler<IStateButton, ContentViewGroup>
 {
+	protected override ContentViewGroup CreatePlatformView()
+	{
+		return new ContentViewGroup(Context);
+	}
+
 	Rect _rect;
-	protected override void ConnectHandler(Microsoft.Maui.Platform.ContentViewGroup platformView)
+	protected override void ConnectHandler(ContentViewGroup platformView)
 	{
 		base.ConnectHandler(platformView);
 

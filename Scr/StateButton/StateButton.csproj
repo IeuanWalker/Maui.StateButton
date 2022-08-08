@@ -17,6 +17,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-  <Import Project="CreateControls.MultiTargeting.targets" />
+  <Import Project="MultiTargeting.targets" />
 
 </Project>

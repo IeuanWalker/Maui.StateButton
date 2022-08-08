@@ -6,8 +6,6 @@ public partial class StateButtonHandler
 
 	};
 
-	public static CommandMapper<IStateButton, StateButtonHandler> CommandMapper = new(ViewCommandMapper);
-
 	public StateButtonHandler() : base(Mapper)
 	{
 
