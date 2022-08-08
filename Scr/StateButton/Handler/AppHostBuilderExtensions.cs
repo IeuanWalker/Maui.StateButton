@@ -6,7 +6,7 @@ public static class AppHostBuilderExtensions
 		builder
 			.ConfigureMauiHandlers(handlers =>
 			{
-				handlers.AddTransient(typeof(StateButton), h => new StateButtonHandler());
+				handlers.AddHandler(typeof(StateButton), typeof(StateButtonHandler));
 			});
 
 		return builder;
