@@ -23,7 +23,6 @@ public partial class StateButton : Border
 
 	#endregion Bindable Properties
 
-
 	#region Commands
 
 	/// <summary>

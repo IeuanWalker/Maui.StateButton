@@ -1,5 +1,7 @@
 ﻿using System.Windows.Input;
+
 namespace DemoApp.ViewModels;
+
 public class TestViewModel
 {
 	public ICommand ClickedCommand => new Command(async _ => await Alert("Clicked command", "Button clicked"));

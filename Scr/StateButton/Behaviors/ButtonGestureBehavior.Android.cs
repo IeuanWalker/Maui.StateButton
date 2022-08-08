@@ -44,6 +44,7 @@ public partial class ButtonGestureBehavior
 					Released?.Invoke(this, new EventArgs());
 
 					break;
+
 				case MotionEventActions.Move:
 					if (!_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
 					{
