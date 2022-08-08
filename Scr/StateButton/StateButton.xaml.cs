@@ -1,9 +1,10 @@
 ﻿using System.Windows.Input;
+using StateButton.Handler;
 
 namespace StateButton;
 
 [ContentProperty(nameof(Content))]
-public partial class StateButton : Border
+public partial class StateButton : Border, IStateButton
 {
 	#region Bindable Properties
 

@@ -16,4 +16,7 @@
 	    <Generator></Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+  <Import Project="CreateControls.MultiTargeting.targets" />
+
 </Project>
