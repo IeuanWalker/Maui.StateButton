@@ -11,25 +11,25 @@ partial class ButtonGestureBehavior
 		base.OnAttachedTo(bindable, platformView);
 
 		platformView.SetAccessibilityDelegate(new MyAccessibilityDelegate());
+		platformView.Focusable = true;
 
-
-		platformView.KeyPress += (object? sender, KeyEventArgs e) =>
-		{
-			if(e.Event is null)
-			{
-				return;
-			}
+		//platformView.KeyPress += (object? sender, KeyEventArgs e) =>
+		//{
+		//	if(e.Event is null)
+		//	{
+		//		return;
+		//	}
 			
-			if (!e.Event.Action.Equals(KeyEventActions.Up))
-			{
-				return;
-			}
+		//	if (!e.Event.Action.Equals(KeyEventActions.Up))
+		//	{
+		//		return;
+		//	}
 
-			if(e.KeyCode == Keycode.Space || e.KeyCode == Keycode.Enter)
-			{
-				Clicked?.Invoke(this, new EventArgs());
-			}
-		};
+		//	if(e.KeyCode == Keycode.Space || e.KeyCode == Keycode.Enter)
+		//	{
+		//		Clicked?.Invoke(this, new EventArgs());
+		//	}
+		//};
 
 		platformView.Touch += (sender, te) =>
 		{
