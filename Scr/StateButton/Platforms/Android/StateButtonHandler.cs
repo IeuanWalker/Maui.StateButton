@@ -24,9 +24,7 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 
 		platformView.Touch += (sender, te) =>
 		{
-			Android.Views.View? v = sender as Android.Views.View;
-
-			if (v is null)
+			if (sender is not Android.Views.View view)
 			{
 				return;
 			}
@@ -34,13 +32,13 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 			switch (te?.Event?.Action)
 			{
 				case MotionEventActions.Down:
-					_rect = new Rect(v.Left, v.Top, v.Right, v.Bottom);
+					_rect = new Rect(view.Left, view.Top, view.Right, view.Bottom);
 
 					VirtualView.InternalPressed();
 					break;
 
 				case MotionEventActions.Up:
-					if (_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
+					if (_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					{
 						VirtualView.InternalReleased();
 						VirtualView.InternalClicked();
@@ -56,7 +54,7 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 
 					break;
 				case MotionEventActions.Move:
-					if (!_rect.Contains(v.Left + (int)te.Event.GetX(), v.Top + (int)te.Event.GetY()))
+					if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					{
 						VirtualView.InternalReleased();
 					}
