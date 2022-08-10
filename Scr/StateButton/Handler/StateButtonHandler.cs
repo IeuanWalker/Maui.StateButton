@@ -1,18 +1,21 @@
 ﻿namespace StateButton.Handler;
 public partial class StateButtonHandler
 {
-	public static IPropertyMapper<IStateButton, StateButtonHandler> Mapper = new PropertyMapper<IStateButton, StateButtonHandler>(ViewMapper)
-	{
+	public static IPropertyMapper<IStateButton, StateButtonHandler> StateButtonMapper = new PropertyMapper<IStateButton, StateButtonHandler>(ViewMapper);
 
+	public static CommandMapper<IStateButton, StateButtonHandler> StateButtonCommandMapper = new(ViewCommandMapper)
+	{
+	
 	};
 
-	public StateButtonHandler() : base(Mapper)
+	public StateButtonHandler(IPropertyMapper? mapper, CommandMapper? commandMapper)
+		: base(mapper ?? StateButtonMapper, commandMapper ?? StateButtonCommandMapper)
 	{
-
 	}
 
-	public StateButtonHandler(IPropertyMapper mapper) : base(mapper ?? Mapper)
+	public StateButtonHandler()
+		: base(StateButtonMapper, StateButtonCommandMapper)
 	{
-
 	}
+
 }

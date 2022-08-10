@@ -137,7 +137,7 @@ public partial class StateButton : Border, IStateButton
 		InitializeComponent();
 	}
 
-	internal void PressedGesture()
+	void IStateButton.InternalPressed()
 	{
 		if (!IsEnabled)
 		{
@@ -151,7 +151,7 @@ public partial class StateButton : Border, IStateButton
 		State = ButtonStateEnum.Pressed;
 	}
 
-	internal void ReleasedGesture()
+	void IStateButton.InternalReleased()
 	{
 		if (!IsEnabled)
 		{
@@ -170,7 +170,7 @@ public partial class StateButton : Border, IStateButton
 		State = ButtonStateEnum.NotPressed;
 	}
 
-	internal void ClickedGesture()
+	void IStateButton.InternalClicked()
 	{
 		if (!IsEnabled)
 		{
