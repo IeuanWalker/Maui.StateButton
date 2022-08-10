@@ -1,8 +1,11 @@
-﻿using Android.Views;
+﻿using Android.Content;
+using Android.Runtime;
+using Android.Views;
 using Android.Views.Accessibility;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 using static Android.Views.View;
-
 namespace StateButton.Behaviors;
+
 partial class ButtonGestureBehavior
 {
 	Rect _rect;
@@ -12,24 +15,6 @@ partial class ButtonGestureBehavior
 
 		platformView.SetAccessibilityDelegate(new MyAccessibilityDelegate());
 		platformView.Focusable = true;
-
-		//platformView.KeyPress += (object? sender, KeyEventArgs e) =>
-		//{
-		//	if(e.Event is null)
-		//	{
-		//		return;
-		//	}
-			
-		//	if (!e.Event.Action.Equals(KeyEventActions.Up))
-		//	{
-		//		return;
-		//	}
-
-		//	if(e.KeyCode == Keycode.Space || e.KeyCode == Keycode.Enter)
-		//	{
-		//		Clicked?.Invoke(this, new EventArgs());
-		//	}
-		//};
 
 		platformView.Touch += (sender, te) =>
 		{
