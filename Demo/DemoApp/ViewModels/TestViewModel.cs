@@ -1,19 +1,34 @@
-﻿using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace DemoApp.ViewModels;
 
-public class TestViewModel
+[INotifyPropertyChanged]
+public partial class TestViewModel
 {
-	public ICommand ClickedCommand => new Command(async _ => await Alert("Clicked command", "Button clicked"));
-	public ICommand PressedCommand => new Command(async _ => await Alert("Pressed command", "Button pressed"));
-	public ICommand ReleasedCommand => new Command(async _ => await Alert("Released command", "Released released"));
+
+	[RelayCommand]
+	static async Task Clicked()
+	{
+		await Alert("Clicked command", "Button clicked");
+	}
+	[RelayCommand]
+	static async Task Pressed()
+	{
+		await Alert("Pressed command", "Button pressed");
+	}
+	[RelayCommand]
+	static async Task Released()
+	{
+		await Alert("Released command", "Button released");
+	}
 
 	static async Task Alert(string title, string message)
 	{
 		Page? mainpage = Application.Current?.MainPage;
 		if (mainpage is not null)
 		{
-			await mainpage.DisplayAlert(title, message, "Ok");
+			await mainpage.DisplayAlert(title, message, "OK");
 		}
 	}
 }
