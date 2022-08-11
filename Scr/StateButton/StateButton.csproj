@@ -11,9 +11,44 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+  <PropertyGroup>
+    <GitInfoReportImportance>high</GitInfoReportImportance>
+    <PackageId>IeuanWalker.Maui.StateButton</PackageId>
+    <Summary>With this control you are able to create any style of button. This is possible as it acts as a wrapper to your XAML and provides you the events/ commands and properties to bind too. It's also 100% accessible.</Summary>
+    <Authors>Ieuan Walker</Authors>
+    <Owners>Ieuan Walker</Owners>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>IeuanWalker.Maui.StateButton</Product>
+    <Copyright>© Ieuan Walker. All rights reserved.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/IeuanWalker/Maui.StateButton</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/IeuanWalker/Maui.StateButton</RepositoryUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+    <Title>State button for .NET MAUI</Title>
+    <Description>With this control you are able to create any style of button. This is possible as it acts as a wrapper to your XAML and provides you the events/ commands and properties to bind too. It's also 100% accessible.</Description>
+    <PackageIcon>icon.png</PackageIcon>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <Version>1.0.0-pre1</Version>
+    <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>maui, control, button, flexible, custom, accessible</PackageTags>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
 	<ItemGroup>
 	  <None Include="Handler\StateButtonHandler.Android.cs" />
 	  <None Include="Handler\StateButtonHandler.iOS.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
