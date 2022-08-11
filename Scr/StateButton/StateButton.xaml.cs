@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using StateButton.Enums;
 using StateButton.Handler;
 
 namespace StateButton;
@@ -11,14 +12,14 @@ public partial class StateButton : Border, IStateButton
 	/// <summary>
 	/// Backing BindableProperty for the <see cref="State"/> property.
 	/// </summary>
-	public static readonly BindableProperty StateProperty = BindableProperty.Create(nameof(State), typeof(ButtonStateEnum), typeof(StateButton), ButtonStateEnum.NotPressed, BindingMode.OneWayToSource);
+	public static readonly BindableProperty StateProperty = BindableProperty.Create(nameof(State), typeof(ButtonState), typeof(StateButton), ButtonState.NotPressed, BindingMode.OneWayToSource);
 
 	/// <summary>
 	/// Property that gets updated depending on the button state. This is a bindable property.
 	/// </summary>
-	public ButtonStateEnum State
+	public ButtonState State
 	{
-		get => (ButtonStateEnum)GetValue(StateProperty);
+		get => (ButtonState)GetValue(StateProperty);
 		set => SetValue(StateProperty, value);
 	}
 
@@ -146,8 +147,8 @@ public partial class StateButton : Border, IStateButton
 		Pressed?.Invoke(this, EventArgs.Empty);
 		PressedCommand?.Execute(PressedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.Pressed));
-		State = ButtonStateEnum.Pressed;
+		VisualStateManager.GoToState(this, nameof(ButtonState.Pressed));
+		State = ButtonState.Pressed;
 	}
 
 	void IStateButton.InternalReleased()
@@ -157,7 +158,7 @@ public partial class StateButton : Border, IStateButton
 			return;
 		}
 
-		if (State.Equals(ButtonStateEnum.NotPressed))
+		if (State.Equals(ButtonState.NotPressed))
 		{
 			return;
 		}
@@ -165,8 +166,8 @@ public partial class StateButton : Border, IStateButton
 		Released?.Invoke(this, EventArgs.Empty);
 		ReleasedCommand?.Execute(ReleasedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonStateEnum.NotPressed));
-		State = ButtonStateEnum.NotPressed;
+		VisualStateManager.GoToState(this, nameof(ButtonState.NotPressed));
+		State = ButtonState.NotPressed;
 	}
 
 	void IStateButton.InternalClicked()

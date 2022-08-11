@@ -6,17 +6,18 @@ namespace DemoApp.ViewModels;
 [INotifyPropertyChanged]
 public partial class TestViewModel
 {
-
 	[RelayCommand]
 	static async Task Clicked()
 	{
 		await Alert("Clicked command", "Button clicked");
 	}
+
 	[RelayCommand]
 	static async Task Pressed()
 	{
 		await Alert("Pressed command", "Button pressed");
 	}
+
 	[RelayCommand]
 	static async Task Released()
 	{
