@@ -24,7 +24,6 @@ public partial class StateButton : Border, IStateButton
 
 	#endregion Bindable Properties
 
-
 	#region Commands
 
 	/// <summary>

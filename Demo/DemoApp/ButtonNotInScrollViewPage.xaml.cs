@@ -1,4 +1,5 @@
 ﻿namespace DemoApp;
+
 public partial class ButtonNotInScrollViewPage : ContentPage
 {
 	public ButtonNotInScrollViewPage()

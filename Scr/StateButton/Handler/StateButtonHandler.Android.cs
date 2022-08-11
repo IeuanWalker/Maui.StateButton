@@ -51,6 +51,7 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 					VirtualView.InternalReleased();
 
 					break;
+
 				case MotionEventActions.Move:
 					if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					{
@@ -72,17 +73,16 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 		{
 			base.OnInitializeAccessibilityNodeInfo(host, info);
 
-			if(info is null)
+			if (info is null)
 			{
 				return;
 			}
-			
+
 			info.ClassName = "android.widget.Button";
 			info.Clickable = true;
 		}
 	}
 }
-
 
 public class CustomContentViewGroup : ContentViewGroup
 {

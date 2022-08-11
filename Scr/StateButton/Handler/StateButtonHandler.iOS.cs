@@ -31,10 +31,9 @@ public class CustomContentViewGroup : Microsoft.Maui.Platform.ContentView
 	public override void TouchesMoved(NSSet touches, UIEvent? evt)
 	{
 		Released?.Invoke(this, EventArgs.Empty);
-		
+
 		base.TouchesMoved(touches, evt);
 	}
-
 
 	public override void TouchesBegan(NSSet touches, UIEvent? evt)
 	{
