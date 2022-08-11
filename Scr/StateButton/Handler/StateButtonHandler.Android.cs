@@ -12,14 +12,12 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 {
 	protected override CustomContentViewGroup CreatePlatformView()
 	{
-		return new CustomContentViewGroup(Context);
+		return new(Context);
 	}
 
 	Rect _rect;
 	protected override void ConnectHandler(CustomContentViewGroup platformView)
 	{
-		base.ConnectHandler(platformView);
-
 		platformView.SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
 		platformView.Touch += (sender, te) =>
@@ -64,6 +62,8 @@ public partial class StateButtonHandler : ViewHandler<IStateButton, CustomConten
 		};
 
 		platformView.AccessiblityKeyboardClicked += (object? _, EventArgs e) => VirtualView.InternalClicked();
+
+		base.ConnectHandler(platformView);
 	}
 
 	class MyAccessibilityDelegate : AccessibilityDelegate

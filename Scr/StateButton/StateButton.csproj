@@ -12,6 +12,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="Handler\StateButtonHandler.Android.cs" />
+	  <None Include="Handler\StateButtonHandler.iOS.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="StateButton.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
