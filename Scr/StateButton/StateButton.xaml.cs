@@ -5,7 +5,7 @@ using StateButton.Handler;
 namespace StateButton;
 
 [ContentProperty(nameof(Content))]
-public partial class StateButton : Border, IStateButton
+public partial class StateButton : Border
 {
 	#region Bindable Properties
 
@@ -135,9 +135,13 @@ public partial class StateButton : Border, IStateButton
 	public StateButton()
 	{
 		InitializeComponent();
+
+
+
+
 	}
 
-	void IStateButton.InternalPressed()
+	internal void InternalPressed()
 	{
 		if (!IsEnabled)
 		{
@@ -151,7 +155,7 @@ public partial class StateButton : Border, IStateButton
 		State = ButtonState.Pressed;
 	}
 
-	void IStateButton.InternalReleased()
+	internal void InternalReleased()
 	{
 		if (!IsEnabled)
 		{
@@ -170,7 +174,7 @@ public partial class StateButton : Border, IStateButton
 		State = ButtonState.NotPressed;
 	}
 
-	void IStateButton.InternalClicked()
+	internal void InternalClicked()
 	{
 		if (!IsEnabled)
 		{

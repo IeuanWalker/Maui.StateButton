@@ -2,10 +2,20 @@
 
 public static class AppHostBuilderExtensions
 {
-	public static MauiAppBuilder ConfigureStateButton(this MauiAppBuilder builder)
+	public static void Test()
 	{
-		builder.ConfigureMauiHandlers(handlers => handlers.AddHandler(typeof(StateButton), typeof(StateButtonHandler)));
+		Microsoft.Maui.Handlers.BorderHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
+		{
+			if (view is StateButton)
+			{
+				#if ANDROID
+				handler
 
-		return builder;
+				#elif IOS
+						handler.PlatformView.BackgroundColor = Colors.Red.ToPlatform();
+						handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.Line;
+				#endif
+			}
+		});
 	}
 }
