@@ -11,6 +11,18 @@
         <StackLayout Padding="20,10">
             <Button Clicked="BtnNotInScrollView_Clicked" Text="Test button not in scroll view" />
 
+            <Border Padding="20,10"
+                    AutomationProperties.IsInAccessibleTree="True"
+                    BackgroundColor="LightYellow"
+                    HorizontalOptions="Center"
+                    Stroke="Red"
+                    StrokeThickness="4">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <Label Text="THis is a standard border control" TextColor="Black" />
+            </Border>
+
             <!-- Events -->
             <Label FontSize="Large" Text="Events" />
             <Label FontSize="Medium" Text="Clicked" />

@@ -11,6 +11,8 @@ public class CustomContentView : Microsoft.Maui.Platform.ContentView
 
 	public CustomContentView()
 	{
+		AccessibilityTraits = UIAccessibilityTrait.Button;
+
 		AddGestureRecognizer(new UITapGestureRecognizer(() => Clicked?.Invoke(this, EventArgs.Empty)));
 	}
 	

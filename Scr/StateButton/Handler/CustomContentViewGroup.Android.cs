@@ -2,7 +2,6 @@
 using Android.Runtime;
 using Android.Views;
 using Android.Views.Accessibility;
-using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
 
 namespace StateButton.Handler;
