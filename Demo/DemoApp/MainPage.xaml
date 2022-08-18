@@ -311,8 +311,8 @@
                                 <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
                                     <Setter Property="Background">
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Offset="1.0" Color="Red" />
-                                            <GradientStop Offset="0.1" Color="Orange" />
+                                            <GradientStop Offset="0.1" Color="Red" />
+                                            <GradientStop Offset="1.0" Color="Orange" />
                                         </LinearGradientBrush>
                                     </Setter>
                                 </Trigger>
@@ -344,8 +344,8 @@
                     <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
                         <Setter Property="Background">
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Offset="1.0" Color="Red" />
-                                <GradientStop Offset="0.1" Color="Orange" />
+                                <GradientStop Offset="0.1" Color="Red" />
+                                <GradientStop Offset="1.0" Color="Orange" />
                             </LinearGradientBrush>
                         </Setter>
                     </Trigger>
