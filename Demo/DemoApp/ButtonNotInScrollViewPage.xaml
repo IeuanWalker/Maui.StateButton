@@ -5,31 +5,32 @@
              xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton">
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <stateButton:StateButton AutomationProperties.IsInAccessibleTree="True"
+            <stateButton:StateButton Padding="20,10"
+                                     AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test"
+                                     BackgroundColor="Red"
                                      Clicked="StateButton_Clicked"
                                      HorizontalOptions="Center"
-                                     Released="StateButton_Released">
-                <stateButton:StateButton.Content>
-                    <Frame Padding="20,10" BackgroundColor="Red">
-                        <Frame.Triggers>
-                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
-                                         TargetType="Frame"
-                                         Value="Pressed">
-                                <Setter Property="BackgroundColor" Value="LightGray" />
-                            </DataTrigger>
-                        </Frame.Triggers>
-                        <Label Text="Test" TextColor="White">
-                            <Label.Triggers>
-                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
-                                             TargetType="Label"
-                                             Value="Pressed">
-                                    <Setter Property="TextColor" Value="Blue" />
-                                </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
-                    </Frame>
-                </stateButton:StateButton.Content>
+                                     Released="StateButton_Released"
+                                     Stroke="#C49B33"
+                                     StrokeThickness="4">
+                <stateButton:StateButton.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </stateButton:StateButton.StrokeShape>
+                <stateButton:StateButton.Triggers>
+                    <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                        <Setter Property="BackgroundColor" Value="LightGray" />
+                    </Trigger>
+                </stateButton:StateButton.Triggers>
+                <Label Text="Test" TextColor="White">
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                     TargetType="Label"
+                                     Value="Pressed">
+                            <Setter Property="TextColor" Value="Blue" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
             </stateButton:StateButton>
         </StackLayout>
     </ContentPage.Content>

@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using StateButton.Enums;
-using StateButton.Handler;
 
 namespace StateButton;
 
@@ -135,10 +134,6 @@ public partial class StateButton : Border
 	public StateButton()
 	{
 		InitializeComponent();
-
-
-
-
 	}
 
 	internal void InternalPressed()

@@ -85,24 +85,4 @@ public class CustomContentViewGroup : ContentViewGroup
 			info.Clickable = true;
 		}
 	}
-
-	public void test()
-	{
-		BorderHandler.PlatformViewFactory = (handler) =>
-		{
-			return new CustomContentViewGroup(handler.Context); // your native view
-		};
-
-		BorderHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
-		{
-			if (view is StateButton stateButton)
-			{
-				CustomContentViewGroup platformView = (CustomContentViewGroup)handler.PlatformView;
-
-				platformView.Pressed1 += (_, e) => stateButton.InternalPressed();
-				platformView.Released += (_, e) => stateButton.InternalReleased();
-				platformView.Clicked += (_, e) => stateButton.InternalClicked();
-			}
-		});
-	}
 }
