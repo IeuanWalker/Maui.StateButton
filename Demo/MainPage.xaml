@@ -9,8 +9,16 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout Padding="20,10">
-            <Switch IsToggled="{Binding TestToggle}" />
 
+            <HorizontalStackLayout Margin="10,20">
+                <Label Margin="0,0,20,0"
+                       Text="Test toggle:"
+                       VerticalOptions="Center" />
+                <Switch IsToggled="{Binding TestToggle}" />
+            </HorizontalStackLayout>
+
+            <!-- Standard board - (Working as expected) -->
+            <Label Margin="10" Text="Standard border control binded to switch (works as expected)" />
             <Border Padding="20,10" HorizontalOptions="Center">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10" />
@@ -34,8 +42,73 @@
                     </DataTrigger>
                 </Border.Triggers>
 
-                <Label Text="Trigger not working on iOS" TextColor="White" />
+                <Label Text="Test" TextColor="White" />
             </Border>
+
+            <BoxView Margin="10"
+                     BackgroundColor="Black"
+                     HeightRequest="1" />
+
+            <Label Margin="10" Text="Custom control that inherits from the border control" />
+
+            <!-- Custom control based on border not working -->
+            <Label Margin="10" Text="No stroke set (doesnt work)" />
+            <stateButton:StateButton Padding="20,10" HorizontalOptions="Center">
+                <stateButton:StateButton.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </stateButton:StateButton.StrokeShape>
+                <stateButton:StateButton.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#015b66" />
+                        <GradientStop Offset="1.0" Color="#259879" />
+                    </LinearGradientBrush>
+                </stateButton:StateButton.Background>
+                <stateButton:StateButton.Triggers>
+                    <DataTrigger Binding="{Binding TestToggle}"
+                                 TargetType="stateButton:StateButton"
+                                 Value="True">
+                        <Setter Property="Background">
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0.1" Color="Red" />
+                                <GradientStop Offset="1.0" Color="Orange" />
+                            </LinearGradientBrush>
+                        </Setter>
+                    </DataTrigger>
+                </stateButton:StateButton.Triggers>
+
+                <Label Text="Test" TextColor="White" />
+            </stateButton:StateButton>
+
+            <!-- Custom control based on border not working -->
+            <Label Margin="10" Text="Stroke set to Transparent (working)" />
+            <stateButton:StateButton Padding="20,10"
+                                     HorizontalOptions="Center"
+                                     Stroke="Transparent">
+                <stateButton:StateButton.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </stateButton:StateButton.StrokeShape>
+                <stateButton:StateButton.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#015b66" />
+                        <GradientStop Offset="1.0" Color="#259879" />
+                    </LinearGradientBrush>
+                </stateButton:StateButton.Background>
+                <stateButton:StateButton.Triggers>
+                    <DataTrigger Binding="{Binding TestToggle}"
+                                 TargetType="stateButton:StateButton"
+                                 Value="True">
+                        <Setter Property="Background">
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0.1" Color="Red" />
+                                <GradientStop Offset="1.0" Color="Orange" />
+                            </LinearGradientBrush>
+                        </Setter>
+                    </DataTrigger>
+                </stateButton:StateButton.Triggers>
+
+                <Label Text="Test" TextColor="White" />
+            </stateButton:StateButton>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
