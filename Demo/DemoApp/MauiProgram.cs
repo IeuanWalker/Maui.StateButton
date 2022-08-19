@@ -1,4 +1,4 @@
-﻿using StateButton.Handler;
+﻿using StateButton;
 
 namespace DemoApp;
 
@@ -13,9 +13,8 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
-
-		StateButton.AppHostBuilderExtensions.ConfigureStateButton();
+			})
+			.ConfigureStateButton();
 
 		return builder.Build();
 	}

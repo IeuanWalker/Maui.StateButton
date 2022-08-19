@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Handlers;
+using StateButton.Handler;
 #if ANDROID
 using StateButton.Handler;
 #elif IOS
@@ -9,15 +10,13 @@ namespace StateButton;
 
 public static class AppHostBuilderExtensions
 {
-	public static void ConfigureStateButton()
+	public static void ConfigureStateButton(this MauiAppBuilder builder)
 	{
-#if ANDROID
-		BorderHandler.PlatformViewFactory = (handler) =>
-		{
-			return new CustomContentViewGroup(handler.Context); // your native view
-		};
 
-		BorderHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
+		builder.ConfigureMauiHandlers(h => h.AddHandler<StateButton, StateButtonHandler>());
+		
+#if ANDROID
+		StateButtonHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
 		{
 			if (view is StateButton stateButton)
 			{
@@ -29,12 +28,7 @@ public static class AppHostBuilderExtensions
 			}
 		});
 #elif IOS
-		BorderHandler.PlatformViewFactory = (handler) =>
-		{
-			return new CustomContentView(); // your native view
-		};
-
-		BorderHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
+		StateButtonHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
 		{
 			if (view is StateButton stateButton)
 			{
