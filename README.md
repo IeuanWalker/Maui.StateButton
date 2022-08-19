@@ -9,6 +9,13 @@ This is possible as it acts as a wrapper to your XAML and provides you the event
 
 It's also 100% accessible with each platform seeing/ treating the control as a native button.
 
+The [example page](https://github.com/IeuanWalker/Maui.StateButton/blob/master/Demo/ExamplePage.xaml), has a bunch of different design to showcase the usage -
+
+https://user-images.githubusercontent.com/6544051/185675087-6f3928cd-578c-46a2-b22a-4a225ad96248.mp4
+
+
+
+
 ## How to use it?
 Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButton) into your shared project project
 ```
@@ -37,12 +44,7 @@ Install-Package IeuanWalker.StateButton
 
 
 ## How to style the button for different states
-There are 2 ways to style the button -
-- [DataTriggers](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/triggers#data-triggers)
-- [VisualStateManager](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual-state-manager) _(not recommended)_
-
-### DataTriggers
-Simply add a DataTrigger to any element and bind it to the `State` property of the button - 
+Simply add a Trigger to any element and bind it to the `State` property of the button - 
 ```xaml
 <stateButton:StateButton HorizontalOptions="Center">
     <stateButton:StateButton.Content>
@@ -67,39 +69,6 @@ Simply add a DataTrigger to any element and bind it to the `State` property of t
     </stateButton:StateButton.Content>
 </stateButton:StateButton>
 ```
-
-
-### VisualStateManager
-You can also use the VisualStateManager, but this is <strong>NOT RECOMENDED</strong> due to a bug in Xamarin.forms that causes a `NullReferenceException` when `TargetName` property is used, heres a link to the bug - https://github.com/xamarin/Xamarin.Forms/issues/10710.
-If you still want to use it -
-```xaml
-<stateButton:StateButton BackgroundColor="Red" HorizontalOptions="Center">
-    <stateButton:StateButton.Content>
-        <Frame Padding="20,10" BackgroundColor="Transparent">
-            <Label Text="Test" TextColor="White" />
-        </Frame>
-    </stateButton:StateButton.Content>
-    <VisualStateManager.VisualStateGroups>
-        <VisualStateGroup Name="ButtonStates">
-            <VisualState Name="Pressed">
-                <VisualState.Setters>
-                    <Setter Property="BackgroundColor" Value="Blue" />
-                </VisualState.Setters>
-            </VisualState>
-            <VisualState Name="NotPressed">
-                <VisualState.Setters>
-                    <Setter Property="BackgroundColor" Value="Red" />
-                </VisualState.Setters>
-            </VisualState>
-        </VisualStateGroup>
-    </VisualStateManager.VisualStateGroups>
-</stateButton:StateButton>
-```
-
-## Examples
-| Designs from a production app | Complex example |
-|------|------|
-|![Production example of control](/Docs/prodExample.gif)| <p>This shows the StateButton as the wrapper for a card. When the card is pressed or clicked then the title is set to bold and the border goes darker.</p> <p> The card also shakes when clicked, this shows that it works with the [AnimationBehaviours from XamarinCommunityToolkit](https://github.com/xamarin/XamarinCommunityToolkit). </p><p> It also shows that it works with nested TapGestureRecognizer, XF native button and nested StateButton - </p> ![Complex example of control](/Docs/ComplexExample.gif)|
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.StateButton.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.StateButton?ref=badge_large)
