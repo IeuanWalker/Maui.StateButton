@@ -1,6 +1,6 @@
 ﻿using StateButton;
 
-namespace DemoApp;
+namespace App;
 
 public static class MauiProgram
 {

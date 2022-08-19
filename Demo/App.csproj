@@ -47,8 +47,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Scr\StateButton\StateButton.csproj" />
+	  <ProjectReference Include="..\Scr\StateButton.csproj" />
 	</ItemGroup>
+
 
 	<ItemGroup>
 	  <MauiXaml Update="ButtonNotInScrollViewPage.xaml">
