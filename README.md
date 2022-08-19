@@ -11,10 +11,7 @@ It's also 100% accessible with each platform seeing/ treating the control as a n
 
 The [example page](https://github.com/IeuanWalker/Maui.StateButton/blob/master/Demo/ExamplePage.xaml), has a bunch of different design to showcase the usage -
 
-https://user-images.githubusercontent.com/6544051/185675087-6f3928cd-578c-46a2-b22a-4a225ad96248.mp4
-
-
-
+![Example gif](/Example.gif)
 
 ## How to use it?
 Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButton) into your shared project project
