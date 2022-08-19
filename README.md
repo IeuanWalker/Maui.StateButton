@@ -43,30 +43,27 @@ Install-Package IeuanWalker.StateButton
 ## How to style the button for different states
 Simply add a Trigger to any element and bind it to the `State` property of the button - 
 ```xaml
-<stateButton:StateButton HorizontalOptions="Center">
-    <stateButton:StateButton.Content>
-        <Frame Padding="20,10" BackgroundColor="Red">
-            <Frame.Triggers>
-                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
-                             TargetType="Frame"
-                             Value="Pressed">
-                    <Setter Property="BackgroundColor" Value="LightGray" />
-                </DataTrigger>
-            </Frame.Triggers>
-            <Label Text="Test" TextColor="White">
-                <Label.Triggers>
-                    <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
-                                 TargetType="Label"
-                                 Value="Pressed">
-                        <Setter Property="TextColor" Value="Blue" />
-                    </DataTrigger>
-                </Label.Triggers>
-            </Label>
-        </Frame>
-    </stateButton:StateButton.Content>
+<stateButton:StateButton Padding="20,10" BackgroundColor="Red">
+    <stateButton:StateButton.StrokeShape>
+        <RoundRectangle CornerRadius="10" />
+    </stateButton:StateButton.StrokeShape>
+    <stateButton:StateButton.Triggers>
+        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+            <Setter Property="BackgroundColor" Value="Green" />
+        </Trigger>
+    </stateButton:StateButton.Triggers>
+
+    <Label Text="Test" TextColor="White">
+        <Label.Triggers>
+            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                        TargetType="Label"
+                        Value="Pressed">
+                <Setter Property="TextColor" Value="Blue" />
+            </DataTrigger>
+        </Label.Triggers>
+    </Label>
 </stateButton:StateButton>
 ```
-
 
 ## Accessibility
 The control itself is seen as a native button on both platforms, so inherits the same accessbility attributes. So from a screenreader and keyboard POV it is a native button.
