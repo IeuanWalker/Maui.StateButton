@@ -71,9 +71,9 @@ The control itself is seen as a native button on both platforms, so inherits the
 
 There are a few things you can do to imporve the accessibility -
 
-Set the [`SemanticProperties.Description`](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#description) property on the button. Android is smart enough and if you dont set this property it will try and find a label within the control to read the text from, iOS does not do this, so if you dont set this property iOS screenreader will just announce that there is a button, but no name or context is given.
+1. Set the [`SemanticProperties.Description`](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#description) property on the button. Android is smart enough and if you dont set this property it will try and find a label within the control to read the text from, iOS does not do this, so if you dont set this property iOS screenreader will just announce that there is a button, but no name or context is given.
 
-Optionally you can also set the [`SemanticProperties.Hint`](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#hint) property. Using this property you can give more context to what the button is for/ will do.
+2. Optionally you can also set the [`SemanticProperties.Hint`](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#hint) property. Using this property you can give more context to what the button is for/ will do.
 
 ## Examples
 | Designs from a production app | Complex example |
