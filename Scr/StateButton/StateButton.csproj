@@ -40,11 +40,6 @@
   </PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="Handler\StateButtonHandler.Android.cs" />
-	  <None Include="Handler\StateButtonHandler.iOS.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
