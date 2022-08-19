@@ -2,4 +2,5 @@
 <Border x:Class="StateButton.StateButton"
         xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        BackgroundColor="Transparent" />
+        BackgroundColor="Transparent"
+        Stroke="Transparent" />
