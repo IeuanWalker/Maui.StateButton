@@ -146,7 +146,6 @@ public partial class StateButton : Border
 		Pressed?.Invoke(this, EventArgs.Empty);
 		PressedCommand?.Execute(PressedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonState.Pressed));
 		State = ButtonState.Pressed;
 	}
 
@@ -165,7 +164,6 @@ public partial class StateButton : Border
 		Released?.Invoke(this, EventArgs.Empty);
 		ReleasedCommand?.Execute(ReleasedCommandParameter);
 
-		VisualStateManager.GoToState(this, nameof(ButtonState.NotPressed));
 		State = ButtonState.NotPressed;
 	}
 

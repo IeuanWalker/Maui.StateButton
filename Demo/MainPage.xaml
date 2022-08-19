@@ -10,6 +10,7 @@
     <ScrollView>
         <StackLayout Padding="20,10">
             <Button Clicked="BtnNotInScrollView_Clicked" Text="Test button not in scroll view" />
+            <Button Clicked="Button_Clicked" Text="Examples" />
 
             <Border Padding="20,10"
                     AutomationProperties.IsInAccessibleTree="True"
@@ -204,39 +205,6 @@
                      BackgroundColor="LightGray"
                      HeightRequest="1"
                      HorizontalOptions="Fill" />
-            <!-- Visual state manager -->
-            <Label FontSize="Large" Text="Visual state manager" />
-            <stateButton:StateButton Padding="20,10"
-                                     AutomationProperties.IsInAccessibleTree="True"
-                                     AutomationProperties.Name="Test"
-                                     BackgroundColor="Red"
-                                     HorizontalOptions="Center"
-                                     Stroke="#C49B33"
-                                     StrokeThickness="4">
-                <stateButton:StateButton.StrokeShape>
-                    <RoundRectangle CornerRadius="10" />
-                </stateButton:StateButton.StrokeShape>
-                <Label Text="Test" TextColor="White" />
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup Name="ButtonStates">
-                        <VisualState Name="Pressed">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="Blue" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState Name="NotPressed">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="Red" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </stateButton:StateButton>
-
-            <BoxView Margin="0,30"
-                     BackgroundColor="LightGray"
-                     HeightRequest="1"
-                     HorizontalOptions="Fill" />
             <!-- Complex -->
             <Label FontSize="Large" Text="Complex" />
             <stateButton:StateButton Clicked="Card_OnClicked"
@@ -353,6 +321,7 @@
 
                 <Label Text="Test" TextColor="White" />
             </stateButton:StateButton>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
