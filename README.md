@@ -61,6 +61,15 @@ Simply add a Trigger to any element and bind it to the `State` property of the b
 </stateButton:StateButton>
 ```
 
+## Accessibility
+The control itself is seen as a native control on both platforms, so inherits the same accessbility attributes. So from a screenreader and keyboard POV it is a native button.
+
+There are a few things you can do to imporve the accessibility -
+
+Set the [`SemanticProperties.Description`](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#description) property on the button. Android is smart enough and if you dont set this property it will try and find a label with the control to read the text from, iOS does not do this, so if you dont set this property iOS screen reader will just announce that there is a button, but no name or context is given.
+
+Opintaly you can also set the [`SemanticProperties.Hint`]([https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#description](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility#hint) property. Using this property you can give more context to what the button is for/ will do.
+
 ## Examples
 | Designs from a production app | Complex example |
 |------|------|
