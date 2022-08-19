@@ -7,12 +7,17 @@
 With this control you are able to create any style of button.
 This is possible as it acts as a wrapper to your XAML and provides you the events/ commands and properties to bind too.
 
-It's also _100% accessible_ with each platform seeing/ treating the control as a native button.
+It's also **100% accessible** with each platform seeing/ treating the control as a native button.
 
 ## How to use it?
 Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButton) into your shared project project
 ```
-Install-Package IeuanWalker.StateButton
+Install-Package IeuanWalker.Maui.StateButton
+```
+
+Add the namespace to the page you want to use the control on 
+```xaml
+xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton"
 ```
 
 ## What can I do with it?
