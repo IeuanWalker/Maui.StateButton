@@ -6,6 +6,9 @@ namespace App.ViewModels;
 [INotifyPropertyChanged]
 public partial class TestViewModel
 {
+	[ObservableProperty]
+	bool _testToggle;
+
 	[RelayCommand]
 	static async Task Clicked()
 	{
