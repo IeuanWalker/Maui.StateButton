@@ -6,7 +6,7 @@ public partial class StateButtonHandler
 	protected override ContentViewGroup CreatePlatformView()
 	{
 		base.CreatePlatformView();
-		
+
 		return new CustomContentViewGroup(Context);
 	}
 }

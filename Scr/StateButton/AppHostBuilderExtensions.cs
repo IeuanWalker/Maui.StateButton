@@ -1,20 +1,13 @@
-﻿using Microsoft.Maui.Handlers;
-using StateButton.Handler;
-#if ANDROID
-using StateButton.Handler;
-#elif IOS
-using StateButton.Handler;
-#endif
+﻿using StateButton.Handler;
 
 namespace StateButton;
 
-public static class AppHostBuilderExtensions
+public static partial class AppHostBuilderExtensions
 {
 	public static void ConfigureStateButton(this MauiAppBuilder builder)
 	{
-
 		builder.ConfigureMauiHandlers(h => h.AddHandler<StateButton, StateButtonHandler>());
-		
+
 #if ANDROID
 		StateButtonHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
 		{

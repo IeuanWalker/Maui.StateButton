@@ -4,5 +4,4 @@ namespace StateButton.Handler;
 
 public partial class StateButtonHandler : BorderHandler
 {
-	
 }

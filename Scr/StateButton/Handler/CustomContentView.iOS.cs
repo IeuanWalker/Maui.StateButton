@@ -15,7 +15,7 @@ public class CustomContentView : Microsoft.Maui.Platform.ContentView
 
 		AddGestureRecognizer(new UITapGestureRecognizer(() => Clicked?.Invoke(this, EventArgs.Empty)));
 	}
-	
+
 	public override void TouchesMoved(NSSet touches, UIEvent? evt)
 	{
 		Released?.Invoke(this, EventArgs.Empty);
