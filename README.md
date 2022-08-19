@@ -37,12 +37,7 @@ Install-Package IeuanWalker.StateButton
 
 
 ## How to style the button for different states
-There are 2 ways to style the button -
-- [Trigger](https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/triggers)
-- [VisualStateManager](https://docs.microsoft.com/en-us/dotnet/maui/user-interface/visual-states) _(not recommended)_
-
-### Triggers
-Simply add a DataTrigger to any element and bind it to the `State` property of the button - 
+Simply add a Trigger to any element and bind it to the `State` property of the button - 
 ```xaml
 <stateButton:StateButton Padding="20,10" BackgroundColor="Red">
     <stateButton:StateButton.StrokeShape>
@@ -63,34 +58,6 @@ Simply add a DataTrigger to any element and bind it to the `State` property of t
             </DataTrigger>
         </Label.Triggers>
     </Label>
-</stateButton:StateButton>
-```
-
-
-### VisualStateManager
-You can also use the VisualStateManager, but this is <strong>NOT RECOMENDED</strong> due to a bug in Xamarin.forms that causes a `NullReferenceException` when `TargetName` property is used, heres a link to the bug - https://github.com/xamarin/Xamarin.Forms/issues/10710.
-If you still want to use it -
-```xaml
-<stateButton:StateButton BackgroundColor="Red" HorizontalOptions="Center">
-    <stateButton:StateButton.Content>
-        <Frame Padding="20,10" BackgroundColor="Transparent">
-            <Label Text="Test" TextColor="White" />
-        </Frame>
-    </stateButton:StateButton.Content>
-    <VisualStateManager.VisualStateGroups>
-        <VisualStateGroup Name="ButtonStates">
-            <VisualState Name="Pressed">
-                <VisualState.Setters>
-                    <Setter Property="BackgroundColor" Value="Blue" />
-                </VisualState.Setters>
-            </VisualState>
-            <VisualState Name="NotPressed">
-                <VisualState.Setters>
-                    <Setter Property="BackgroundColor" Value="Red" />
-                </VisualState.Setters>
-            </VisualState>
-        </VisualStateGroup>
-    </VisualStateManager.VisualStateGroups>
 </stateButton:StateButton>
 ```
 
