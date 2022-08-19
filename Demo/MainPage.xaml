@@ -12,25 +12,13 @@
             <Button Clicked="BtnNotInScrollView_Clicked" Text="Test button not in scroll view" />
             <Button Clicked="Button_Clicked" Text="Examples" />
 
-            <Border Padding="20,10"
-                    AutomationProperties.IsInAccessibleTree="True"
-                    BackgroundColor="LightYellow"
-                    HorizontalOptions="Center"
-                    Stroke="Red"
-                    StrokeThickness="4">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10" />
-                </Border.StrokeShape>
-                <Label Text="THis is a standard border control" TextColor="Black" />
-            </Border>
-
             <!-- Events -->
             <Label FontSize="Large" Text="Events" />
             <Label FontSize="Medium" Text="Clicked" />
 
             <stateButton:StateButton Padding="20,10"
-                                     AutomationProperties.IsInAccessibleTree="True"
-                                     AutomationProperties.Name="Test"
+                                     AutomationProperties.HelpText="This is some help text"
+                                     AutomationProperties.Name="Test Accessibility"
                                      BackgroundColor="Red"
                                      Clicked="StateButton_OnClicked"
                                      HorizontalOptions="Center"
@@ -57,11 +45,11 @@
 
             <Label FontSize="Medium" Text="Pressed" />
             <stateButton:StateButton Padding="20,10"
-                                     AutomationProperties.IsInAccessibleTree="True"
-                                     AutomationProperties.Name="Test"
                                      BackgroundColor="Red"
                                      HorizontalOptions="Center"
                                      Pressed="StateButton_OnPressed"
+                                     SemanticProperties.Description="This a description"
+                                     SemanticProperties.Hint="And this is a hint"
                                      Stroke="#C49B33"
                                      StrokeThickness="4">
                 <stateButton:StateButton.StrokeShape>
