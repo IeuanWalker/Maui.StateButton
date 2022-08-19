@@ -19,6 +19,17 @@ Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButt
 Install-Package IeuanWalker.StateButton
 ```
 
+Then in the MauiProgram.cs, and the StateButton configuration method - 
+```csharp
+using StateButton;
+```
+```csharp
+builder
+	.UseMauiApp<App>()
+	.UseMauiCommunityToolkit()
+	.ConfigureStateButton();
+```
+
 ## What can I do with it?
 ### Properties
 | Property | What it does | Extra info |
