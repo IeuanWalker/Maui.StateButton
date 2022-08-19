@@ -7,7 +7,7 @@
 With this control you are able to create any style of button.
 This is possible as it acts as a wrapper to your XAML and provides you the events/ commands and properties to bind too.
 
-It's also 100% accessible with each platform seeing/ treating the control as a native button.
+It's also _100% accessible_ with each platform seeing/ treating the control as a native button.
 
 ## How to use it?
 Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButton) into your shared project project
