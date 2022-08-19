@@ -2,12 +2,388 @@
 <ContentPage x:Class="App.ExamplePage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton">
+             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Examples">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <VerticalStackLayout Padding="20"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Fill">
+                <Grid ColumnDefinitions="*,auto">
+                    <stateButton:StateButton Grid.Column="0"
+                                             Padding="20,20"
+                                             BackgroundColor="#0071FF">
+                        <stateButton:StateButton.StrokeShape>
+                            <RoundRectangle CornerRadius="25" />
+                        </stateButton:StateButton.StrokeShape>
+                        <stateButton:StateButton.Shadow>
+                            <Shadow Brush="#0071FF"
+                                    Opacity="0.7"
+                                    Radius="50"
+                                    Offset="0,0" />
+                        </stateButton:StateButton.Shadow>
+                        <stateButton:StateButton.Triggers>
+                            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="#4d9cff" />
+                            </Trigger>
+                        </stateButton:StateButton.Triggers>
+                        <Label FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Text="Apply"
+                               TextColor="White"
+                               VerticalTextAlignment="Center" />
+                    </stateButton:StateButton>
 
-            </StackLayout>
+                    <stateButton:StateButton Grid.Column="1"
+                                             Margin="10,0,0,0"
+                                             Padding="20,10"
+                                             BackgroundColor="Transparent"
+                                             Stroke="#F5F5F5"
+                                             StrokeThickness="1">
+                        <stateButton:StateButton.StrokeShape>
+                            <RoundRectangle CornerRadius="25" />
+                        </stateButton:StateButton.StrokeShape>
+                        <stateButton:StateButton.Triggers>
+                            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="#F5F5F5" />
+                            </Trigger>
+                        </stateButton:StateButton.Triggers>
+                        <Label FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Text="Cancel"
+                               TextColor="#313131"
+                               VerticalTextAlignment="Center" />
+                    </stateButton:StateButton>
+                </Grid>
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <stateButton:StateButton Grid.Column="1"
+                                         Margin="10,0,0,0"
+                                         Padding="20,20">
+                    <stateButton:StateButton.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.1" Color="#4C5CF6" />
+                            <GradientStop Offset="1.0" Color="#7E51F2" />
+                        </LinearGradientBrush>
+                    </stateButton:StateButton.Background>
+                    <stateButton:StateButton.Shadow>
+                        <Shadow Brush="#313131"
+                                Opacity="0.2"
+                                Radius="40"
+                                Offset="10,10" />
+                    </stateButton:StateButton.Shadow>
+                    <stateButton:StateButton.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </stateButton:StateButton.StrokeShape>
+                    <stateButton:StateButton.Triggers>
+                        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                            <Setter Property="Background">
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0.1" Color="#4C5CF6" />
+                                    <GradientStop Offset="1.0" Color="#6129ef" />
+                                </LinearGradientBrush>
+                            </Setter>
+                        </Trigger>
+                    </stateButton:StateButton.Triggers>
+                    <Grid ColumnDefinitions="*,auto"
+                          HorizontalOptions="Fill"
+                          RowDefinitions="auto,auto,auto">
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               FontSize="15"
+                               Text="Earnings today"
+                               TextColor="White" />
+                        <Border Grid.Column="1"
+                                Padding="10"
+                                BackgroundColor="#4B37B2"
+                                HorizontalOptions="End"
+                                Stroke="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <Label FontFamily="FASolid900"
+                                   Text="&#xf4b9;"
+                                   TextColor="White" />
+                        </Border>
+
+                        <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                            <Label Margin="0,3,0,0"
+                                   FontSize="30"
+                                   Text="$"
+                                   TextColor="#9CAAFF"
+                                   VerticalTextAlignment="Start" />
+                            <Label FontSize="40"
+                                   Text="1,421.56"
+                                   TextColor="White"
+                                   VerticalTextAlignment="Start" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Row="2"
+                                               Grid.ColumnSpan="2"
+                                               Margin="0,7,0,0">
+                            <Border Padding="5"
+                                    BackgroundColor="#4B37B2"
+                                    HorizontalOptions="End"
+                                    Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5" />
+                                </Border.StrokeShape>
+                                <Label FontSize="11"
+                                       Text="+1.5%"
+                                       TextColor="White" />
+                            </Border>
+                            <Label Margin="6,0,0,0"
+                                   FontSize="12"
+                                   Text="Higher earnings than usual"
+                                   TextColor="White"
+                                   VerticalTextAlignment="Center" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </stateButton:StateButton>
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <stateButton:StateButton Grid.Column="1"
+                                         Margin="10,0,0,0"
+                                         Padding="20,20"
+                                         BackgroundColor="#13C77D">
+
+                    <stateButton:StateButton.Shadow>
+                        <Shadow Brush="#313131"
+                                Opacity="0.2"
+                                Radius="40"
+                                Offset="10,10" />
+                    </stateButton:StateButton.Shadow>
+                    <stateButton:StateButton.StrokeShape>
+                        <RoundRectangle CornerRadius="25" />
+                    </stateButton:StateButton.StrokeShape>
+                    <stateButton:StateButton.Triggers>
+                        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                            <Setter Property="BackgroundColor" Value="#10a366" />
+                        </Trigger>
+                    </stateButton:StateButton.Triggers>
+                    <Grid ColumnDefinitions="auto,*"
+                          HorizontalOptions="Fill"
+                          RowDefinitions="auto,auto">
+
+                        <toolkit:AvatarView Grid.RowSpan="2"
+                                            Grid.Column="0"
+                                            Margin="0,0,20,0"
+                                            ImageSource="https://avatars.githubusercontent.com/u/6544051?v=4" />
+
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               Text="Ieuan Walker"
+                               TextColor="White" />
+
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="Creator"
+                               TextColor="#9FE9C8" />
+
+                    </Grid>
+                </stateButton:StateButton>
+
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <stateButton:StateButton Grid.Column="1"
+                                         Margin="10,0,0,0"
+                                         BackgroundColor="#F84994"
+                                         HeightRequest="100"
+                                         Stroke="#F84994"
+                                         StrokeThickness="4"
+                                         WidthRequest="100">
+
+                    <stateButton:StateButton.Shadow>
+                        <Shadow Brush="#313131"
+                                Opacity="0.2"
+                                Radius="40"
+                                Offset="10,10" />
+                    </stateButton:StateButton.Shadow>
+                    <stateButton:StateButton.StrokeShape>
+                        <RoundRectangle CornerRadius="50" />
+                    </stateButton:StateButton.StrokeShape>
+                    <stateButton:StateButton.Triggers>
+                        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                            <Setter Property="BackgroundColor" Value="White" />
+                            <Setter Property="Stroke" Value="#F84994" />
+                        </Trigger>
+                    </stateButton:StateButton.Triggers>
+                    <Label FontFamily="FASolid900"
+                           FontSize="35"
+                           HorizontalTextAlignment="Center"
+                           Text="&#xf004;"
+                           TextColor="White"
+                           VerticalTextAlignment="Center">
+                        <Label.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Label"
+                                         Value="Pressed">
+                                <Setter Property="TextColor" Value="#F84994" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </stateButton:StateButton>
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <stateButton:StateButton Grid.Column="1"
+                                         Margin="10,0,0,0"
+                                         Padding="20,20"
+                                         BackgroundColor="#72047E"
+                                         HorizontalOptions="Center"
+                                         Stroke="#FF0071"
+                                         StrokeThickness="5">
+
+                    <stateButton:StateButton.Shadow>
+                        <Shadow Brush="#FF0071"
+                                Opacity="0.4"
+                                Radius="60"
+                                Offset="0,0" />
+                    </stateButton:StateButton.Shadow>
+                    <stateButton:StateButton.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </stateButton:StateButton.StrokeShape>
+                    <stateButton:StateButton.Triggers>
+                        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                            <Setter Property="BackgroundColor" Value="#FF0071" />
+                        </Trigger>
+                    </stateButton:StateButton.Triggers>
+                    <Label FontAttributes="Bold"
+                           FontSize="20"
+                           Text="New game"
+                           TextColor="#FF0071"
+                           TextTransform="Uppercase">
+                        <Label.Triggers>
+                            <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                         TargetType="Label"
+                                         Value="Pressed">
+                                <Setter Property="TextColor" Value="#72047E" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </stateButton:StateButton>
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <Grid ColumnDefinitions="*,auto,auto">
+                    <stateButton:StateButton Grid.Column="0"
+                                             BackgroundColor="#7B66FF"
+                                             HeightRequest="60"
+                                             HorizontalOptions="Fill">
+                        <stateButton:StateButton.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </stateButton:StateButton.StrokeShape>
+                        <stateButton:StateButton.Triggers>
+                            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="#654dff" />
+                            </Trigger>
+                        </stateButton:StateButton.Triggers>
+                        <Label FontAttributes="Bold"
+                               FontSize="15"
+                               HorizontalTextAlignment="Center"
+                               Text="Get Course"
+                               TextColor="White"
+                               VerticalTextAlignment="Center" />
+                    </stateButton:StateButton>
+                    <stateButton:StateButton Grid.Column="1"
+                                             Margin="5,0"
+                                             BackgroundColor="#F2F2FF"
+                                             HeightRequest="60"
+                                             WidthRequest="60">
+                        <stateButton:StateButton.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </stateButton:StateButton.StrokeShape>
+                        <stateButton:StateButton.Triggers>
+                            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="#e5e5ff" />
+                            </Trigger>
+                        </stateButton:StateButton.Triggers>
+                        <Label FontAttributes="Bold"
+                               FontFamily="FASolid900"
+                               FontSize="15"
+                               HorizontalTextAlignment="Center"
+                               Text="&#xf1e0;"
+                               TextColor="#7B66FF"
+                               VerticalTextAlignment="Center" />
+                    </stateButton:StateButton>
+                    <stateButton:StateButton Grid.Column="2"
+                                             BackgroundColor="#F2F2FF"
+                                             HeightRequest="60"
+                                             HorizontalOptions="Fill"
+                                             WidthRequest="60">
+                        <stateButton:StateButton.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </stateButton:StateButton.StrokeShape>
+                        <stateButton:StateButton.Triggers>
+                            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                <Setter Property="BackgroundColor" Value="#e5e5ff" />
+                            </Trigger>
+                        </stateButton:StateButton.Triggers>
+                        <Label FontAttributes="Bold"
+                               FontFamily="FASolid900"
+                               FontSize="15"
+                               HorizontalTextAlignment="Center"
+                               Text="&#xf004;"
+                               TextColor="#7B66FF"
+                               VerticalTextAlignment="Center" />
+                    </stateButton:StateButton>
+                </Grid>
+
+                <BoxView Margin="0,30"
+                         HeightRequest="3"
+                         Color="#F5F5F5" />
+
+                <stateButton:StateButton Grid.Column="0" Padding="20,20">
+                    <stateButton:StateButton.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.1" Color="#FC8806" />
+                            <GradientStop Offset="1.0" Color="#7B46EB" />
+                        </LinearGradientBrush>
+                    </stateButton:StateButton.Background>
+                    <stateButton:StateButton.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </stateButton:StateButton.StrokeShape>
+                    <stateButton:StateButton.Shadow>
+                        <Shadow Brush="#b3b3ff"
+                                Opacity="0.7"
+                                Radius="50"
+                                Offset="0,0" />
+                    </stateButton:StateButton.Shadow>
+                    <stateButton:StateButton.Triggers>
+                        <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                            <Setter Property="Background">
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0.1" Color="#e37903" />
+                                    <GradientStop Offset="1.0" Color="#5216cf" />
+                                </LinearGradientBrush>
+                            </Setter>
+                        </Trigger>
+                    </stateButton:StateButton.Triggers>
+                    <Label FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           Text="Lets GOOOO!!!"
+                           TextColor="White"
+                           VerticalTextAlignment="Center" />
+                </stateButton:StateButton>
+
+
+            </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
