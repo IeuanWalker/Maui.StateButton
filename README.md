@@ -10,7 +10,7 @@
 With this control you are able to create any style of button.
 This is possible as it acts as a wrapper to your XAML and provides you the events/ commands and properties to bind too.
 
-It's also 100% accessible with each platform seeing/ treating the control as a native button.
+It's also **100% accessible** with each platform seeing/ treating the control as a native button.
 
 The [example page](https://github.com/IeuanWalker/Maui.StateButton/blob/master/Demo/ExamplePage.xaml), has a bunch of different design to showcase the usage -
 
