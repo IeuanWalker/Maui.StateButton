@@ -17,7 +17,7 @@ The [example page](https://github.com/IeuanWalker/Maui.StateButton/blob/master/D
 ![Example gif](/Example.gif)
 
 ## How to use it?
-Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.StateButton) into your shared project project
+Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.Maui.StateButton/) into your shared project project
 ```
 Install-Package IeuanWalker.StateButton
 ```
