@@ -1,6 +1,9 @@
 | :memo:        | This is a MAUI version of my [Xamarin NuGet](https://github.com/IeuanWalker/Xamarin.Forms.StateButton)      |
 |---------------|:------------------------|
 
+| :warning:        | Android keyboard navigation current isnt working - https://github.com/dotnet/maui/issues/12314  |
+|---------------|:------------------------|
+
 # Maui.StateButton  [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.StateButton)](https://www.nuget.org/packages/IeuanWalker.Maui.StateButton) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.StateButton)](https://www.nuget.org/packages/IeuanWalker.Maui.StateButton) 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
