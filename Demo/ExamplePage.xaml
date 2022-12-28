@@ -189,10 +189,8 @@
                                Grid.Column="1"
                                Text="Creator"
                                TextColor="#9FE9C8" />
-
                     </Grid>
                 </stateButton:StateButton>
-
 
                 <BoxView Margin="0,30"
                          HeightRequest="3"
@@ -382,8 +380,6 @@
                            TextColor="White"
                            VerticalTextAlignment="Center" />
                 </stateButton:StateButton>
-
-
             </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>

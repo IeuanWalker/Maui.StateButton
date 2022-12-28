@@ -21,7 +21,7 @@
                    Text="Clicked"
                    TextColor="Black" />
 
-            <stateButton:StateButton Padding="20,10"    
+            <stateButton:StateButton Padding="20,10"
                                      AutomationProperties.HelpText="This is some help text"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test Accessibility"
@@ -333,7 +333,6 @@
 
                 <Label Text="Test" TextColor="White" />
             </stateButton:StateButton>
-
         </StackLayout>
     </ScrollView>
 </ContentPage>
