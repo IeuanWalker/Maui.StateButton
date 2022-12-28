@@ -1,10 +1,10 @@
 ﻿<Project>
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) != true">
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-ios')) != true">
     <Compile Remove="**\*.iOS.cs" />
     <None Include="**\*.iOS.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-android')) != true">
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
     <Compile Remove="**\*.Android.cs" />
     <None Include="**\*.Android.cs" />
   </ItemGroup>
@@ -19,12 +19,12 @@
   </PropertyGroup>
 
   <!-- ANDROID -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net6.0-android'))">
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net7.0-android'))">
     <DefineConstants>$(DefineConstants);MONOANDROID</DefineConstants>
   </PropertyGroup>
 
   <!-- IOS -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net6.0-ios'))">
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net7.0-ios'))">
     <DefineConstants>$(DefineConstants);IOS</DefineConstants>
   </PropertyGroup>
 </Project>
