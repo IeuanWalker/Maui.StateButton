@@ -3,7 +3,8 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:app="clr-namespace:App.ViewModels;assembly=App"
-             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton">
+             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <app:TestViewModel />
     </ContentPage.BindingContext>
@@ -13,11 +14,16 @@
             <Button Clicked="Button_Clicked" Text="Examples" />
 
             <!-- Events -->
-            <Label FontSize="Large" Text="Events" />
-            <Label FontSize="Medium" Text="Clicked" />
+            <Label FontSize="Large"
+                   Text="Events"
+                   TextColor="Black" />
+            <Label FontSize="Medium"
+                   Text="Clicked"
+                   TextColor="Black" />
 
-            <stateButton:StateButton Padding="20,10"
+            <stateButton:StateButton Padding="20,10"    
                                      AutomationProperties.HelpText="This is some help text"
+                                     AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test Accessibility"
                                      BackgroundColor="Red"
                                      Clicked="StateButton_OnClicked"
@@ -43,7 +49,9 @@
                 </Label>
             </stateButton:StateButton>
 
-            <Label FontSize="Medium" Text="Pressed" />
+            <Label FontSize="Medium"
+                   Text="Pressed"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10"
                                      BackgroundColor="Red"
                                      HorizontalOptions="Center"
@@ -71,7 +79,9 @@
                 </Label>
             </stateButton:StateButton>
 
-            <Label FontSize="Medium" Text="Released" />
+            <Label FontSize="Medium"
+                   Text="Released"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test"
@@ -104,8 +114,12 @@
                      HeightRequest="1"
                      HorizontalOptions="Fill" />
             <!-- Commands -->
-            <Label FontSize="Large" Text="Commands" />
-            <Label FontSize="Medium" Text="Clicked" />
+            <Label FontSize="Large"
+                   Text="Commands"
+                   TextColor="Black" />
+            <Label FontSize="Medium"
+                   Text="Clicked"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test"
@@ -133,7 +147,9 @@
                 </Label>
             </stateButton:StateButton>
 
-            <Label FontSize="Medium" Text="Pressed" />
+            <Label FontSize="Medium"
+                   Text="Pressed"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test"
@@ -161,7 +177,9 @@
                 </Label>
             </stateButton:StateButton>
 
-            <Label FontSize="Medium" Text="Released" />
+            <Label FontSize="Medium"
+                   Text="Released"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10"
                                      AutomationProperties.IsInAccessibleTree="True"
                                      AutomationProperties.Name="Test"
@@ -194,7 +212,9 @@
                      HeightRequest="1"
                      HorizontalOptions="Fill" />
             <!-- Complex -->
-            <Label FontSize="Large" Text="Complex" />
+            <Label FontSize="Large"
+                   Text="Complex"
+                   TextColor="Black" />
             <stateButton:StateButton Clicked="Card_OnClicked"
                                      HorizontalOptions="Fill"
                                      Stroke="LightGray"
@@ -219,7 +239,8 @@
                         <Label Margin="20"
                                FontSize="26"
                                HorizontalOptions="Center"
-                               Text="Test">
+                               Text="Test"
+                               TextColor="Black">
                             <Label.Triggers>
                                 <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
                                              TargetType="Label"
@@ -236,7 +257,8 @@
                                HorizontalOptions="Center"
                                LineBreakMode="TailTruncation"
                                MaxLines="3"
-                               Text="I'm baby vape jean shorts hammock air plant gluten-free thundercats, DIY kale chips master cleanse kickstarter vinyl cronut iceland. Coloring book cold-pressed cray authentic seitan. Snackwave bicycle rights ramps hoodie shaman readymade. Kitsch venmo hella pug, chillwave squid four dollar toast hashtag." />
+                               Text="I'm baby vape jean shorts hammock air plant gluten-free thundercats, DIY kale chips master cleanse kickstarter vinyl cronut iceland. Coloring book cold-pressed cray authentic seitan. Snackwave bicycle rights ramps hoodie shaman readymade. Kitsch venmo hella pug, chillwave squid four dollar toast hashtag."
+                               TextColor="Black" />
                         <Label Margin="20,0,20,10"
                                AutomationProperties.IsInAccessibleTree="True"
                                HorizontalOptions="End"
@@ -285,7 +307,9 @@
                      HeightRequest="1"
                      HorizontalOptions="Fill" />
             <!-- Experiment -->
-            <Label FontSize="Large" Text="Experiment" />
+            <Label FontSize="Large"
+                   Text="Experiment"
+                   TextColor="Black" />
             <stateButton:StateButton Padding="20,10" HorizontalOptions="Fill">
                 <stateButton:StateButton.StrokeShape>
                     <RoundRectangle CornerRadius="10" />
