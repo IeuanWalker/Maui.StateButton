@@ -12,6 +12,8 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
+		this.Clickable = true;
+
 		Touch += (sender, te) =>
 		 {
 			 if (sender is not Android.Views.View view)
@@ -82,6 +84,7 @@ public class CustomContentViewGroup : ContentViewGroup
 
 			info.ClassName = "android.widget.Button";
 			info.Clickable = true;
+			info.Focusable = true;
 		}
 	}
 }
