@@ -83,8 +83,6 @@ public class CustomContentViewGroup : ContentViewGroup
 			}
 
 			info.ClassName = "android.widget.Button";
-			info.Clickable = true;
-			info.Focusable = true;
 		}
 	}
 }
