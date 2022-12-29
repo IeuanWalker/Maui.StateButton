@@ -12,7 +12,7 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
-		this.Clickable = true;
+		this.Focusable = true;
 
 		Touch += (sender, te) =>
 		 {
@@ -83,6 +83,7 @@ public class CustomContentViewGroup : ContentViewGroup
 			}
 
 			info.ClassName = "android.widget.Button";
+			info.Clickable = true;
 		}
 	}
 }
