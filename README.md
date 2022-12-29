@@ -1,6 +1,9 @@
 | :memo:        | This is a MAUI version of my [Xamarin NuGet](https://github.com/IeuanWalker/Xamarin.Forms.StateButton)      |
 |---------------|:------------------------|
 
+| :warning:        | I havnt tested iOS <i>yet, (all should be fine though)</i>    |
+|---------------|:------------------------|
+
 # Maui.StateButton  [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.StateButton)](https://www.nuget.org/packages/IeuanWalker.Maui.StateButton) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.StateButton)](https://www.nuget.org/packages/IeuanWalker.Maui.StateButton) 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -78,6 +81,7 @@ Simply add a Trigger to any element and bind it to the `State` property of the b
     </Label>
 </stateButton:StateButton>
 ```
+More exmaples can be found in the demo app - https://github.com/IeuanWalker/Maui.StateButton/blob/master/Demo/ExamplePage.xaml
 
 ## Accessibility
 The control itself is seen as a native button on both platforms, so inherits the same accessbility attributes. So from a screenreader and keyboard POV it is a native button.
