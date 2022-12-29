@@ -12,7 +12,7 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
-		this.Focusable = true;
+		Focusable = true;
 
 		Touch += (sender, te) =>
 		 {
