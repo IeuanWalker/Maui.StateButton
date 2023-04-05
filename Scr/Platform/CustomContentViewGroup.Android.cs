@@ -8,8 +8,11 @@ namespace StateButton.Handler;
 public class CustomContentViewGroup : ContentViewGroup
 {
 	Rect _rect;
-	public CustomContentViewGroup(Context context) : base(context)
+	readonly StateButton _stateButton;
+	public CustomContentViewGroup(Context context, IBorderView virtualView) : base(context)
 	{
+		_stateButton = (StateButton)virtualView;
+
 		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
 		Focusable = true;
@@ -26,30 +29,30 @@ public class CustomContentViewGroup : ContentViewGroup
 				 case MotionEventActions.Down:
 					 _rect = new Rect(view.Left, view.Top, view.Right, view.Bottom);
 
-					 Pressed1?.Invoke(this, EventArgs.Empty);
+					 _stateButton.InvokePressed();
 					 break;
 
 				 case MotionEventActions.Up:
 					 if (_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					 {
-						 Released?.Invoke(this, EventArgs.Empty);
-						 Clicked?.Invoke(this, EventArgs.Empty);
+						 _stateButton.InvokeReleased();
+						 _stateButton.InvokeClicked();
 					 }
 					 else
 					 {
-						 Released?.Invoke(this, EventArgs.Empty);
+						 _stateButton.InvokeReleased();
 					 }
 					 break;
 
 				 case MotionEventActions.Cancel:
-					 Released?.Invoke(this, EventArgs.Empty);
+					 _stateButton.InvokeReleased();
 
 					 break;
 
 				 case MotionEventActions.Move:
 					 if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					 {
-						 Released?.Invoke(this, EventArgs.Empty);
+						 _stateButton.InvokeReleased();
 					 }
 
 					 break;
@@ -61,15 +64,11 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
 		{
-			Clicked?.Invoke(this, EventArgs.Empty);
+			_stateButton.InvokeClicked();
 		}
 
 		return base.OnKeyUp(keyCode, e);
 	}
-
-	public event EventHandler<EventArgs>? Clicked;
-	public event EventHandler<EventArgs>? Pressed1;
-	public event EventHandler<EventArgs>? Released;
 
 	class MyAccessibilityDelegate : AccessibilityDelegate
 	{

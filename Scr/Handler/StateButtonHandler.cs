@@ -2,6 +2,6 @@
 
 namespace StateButton.Handler;
 
-public partial class StateButtonHandler : BorderHandler
+public partial class StateButtonHandler : BorderHandler, IStateButtonHandler
 {
 }
