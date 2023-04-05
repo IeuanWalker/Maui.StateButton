@@ -17,7 +17,7 @@ public static class MauiProgram
 				fonts.AddFont("fa-solid-900.ttf", "FASolid900");
 			})
 			.UseMauiCommunityToolkit()
-			.ConfigureStateButton();
+			.UseStateButton();
 
 		return builder.Build();
 	}
