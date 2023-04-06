@@ -13,52 +13,51 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		_stateButton = (StateButton)virtualView;
 
-		SetAccessibilityDelegate(new MyAccessibilityDelegate());
-
 		Focusable = true;
 		Clickable = true;
+	}
 
-		Touch += (sender, te) =>
-		 {
-			 if (sender is not Android.Views.View view)
-			 {
-				 return;
-			 }
+	public override bool OnTouchEvent(MotionEvent? e)
+	{
+		if(RootView is null)
+		{
+			return base.OnTouchEvent(e);
+		}
 
-			 switch (te?.Event?.Action)
-			 {
-				 case MotionEventActions.Down:
-					 _rect = new Rect(view.Left, view.Top, view.Right, view.Bottom);
+		switch (e?.Action)
+		{
+			case MotionEventActions.Down:
+				_rect = new Rect(RootView.Left, RootView.Top, RootView.Right, RootView.Bottom);
+				_stateButton.InvokePressed();
+				break;
 
-					 _stateButton.InvokePressed();
-					 break;
+			case MotionEventActions.Up:
+				if (_rect.Contains(RootView.Left + (int)e.GetX(), RootView.Top + (int)e.GetY()))
+				{
+					_stateButton.InvokeReleased();
+					_stateButton.InvokeClicked();
+				}
+				else
+				{
+					_stateButton.InvokeReleased();
+				}
+				break;
 
-				 case MotionEventActions.Up:
-					 if (_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
-					 {
-						 _stateButton.InvokeReleased();
-						 _stateButton.InvokeClicked();
-					 }
-					 else
-					 {
-						 _stateButton.InvokeReleased();
-					 }
-					 break;
+			case MotionEventActions.Cancel:
+				_stateButton.InvokeReleased();
 
-				 case MotionEventActions.Cancel:
-					 _stateButton.InvokeReleased();
+				break;
 
-					 break;
+			case MotionEventActions.Move:
+				if (!_rect.Contains(RootView.Left + (int)e.GetX(), RootView.Top + (int)e.GetY()))
+				{
+					_stateButton.InvokeReleased();
+				}
 
-				 case MotionEventActions.Move:
-					 if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
-					 {
-						 _stateButton.InvokeReleased();
-					 }
+				break;
+		}
 
-					 break;
-			 }
-		 };
+		return base.OnTouchEvent(e);
 	}
 
 	public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent? e)
@@ -72,19 +71,15 @@ public class CustomContentViewGroup : ContentViewGroup
 		return base.OnKeyUp(keyCode, e);
 	}
 
-	class MyAccessibilityDelegate : AccessibilityDelegate
+	public override void OnInitializeAccessibilityNodeInfo(AccessibilityNodeInfo? info)
 	{
-		public override void OnInitializeAccessibilityNodeInfo(Android.Views.View? host, AccessibilityNodeInfo? info)
+		if (info is not null)
 		{
-			base.OnInitializeAccessibilityNodeInfo(host, info);
-
-			if (info is null)
-			{
-				return;
-			}
-
-			info.ClassName = "android.widget.Button";
+			info.Focusable = true;
 			info.Clickable = true;
+			info.ClassName = "android.widget.Button";
 		}
+
+		base.OnInitializeAccessibilityNodeInfo(info);
 	}
 }
