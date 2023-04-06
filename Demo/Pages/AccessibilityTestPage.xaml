@@ -11,12 +11,22 @@
 
             <Label Style="{StaticResource sectionHeading}" Text="Standard button" />
             <Button Text="Test" />
-            <controls:Example6 SemanticProperties.Description="Test" Text="Test" />
+            <controls:Example6 Text="Test" />
 
             <Label Style="{StaticResource sectionHeading}" Text="With hint" />
-            <Button SemanticProperties.Hint="Reload list of contacts" Text="Reload" />
-            <controls:Example6 SemanticProperties.Description="Reload"
-                               SemanticProperties.Hint="Reload list of contacts"
+            <Button SemanticProperties.Description="Reload"
+                    SemanticProperties.Hint="Reload list of contacts"
+                    Text="Reload" />
+            <controls:Example6 AccessibilityHint="Reload list of contacts" Text="Reload" />
+
+            <Label Style="{StaticResource sectionHeading}" Text="With hint and events" />
+            <Button Clicked="Button_Clicked"
+                    SemanticProperties.Hint="Reload list of contacts"
+                    Text="Reload" />
+            <controls:Example6 AccessibilityHint="Reload list of contacts"
+                               Clicked="Button_Clicked"
+                               Pressed="Example6_Pressed"
+                               Released="Example6_Released"
                                Text="Reload" />
         </VerticalStackLayout>
     </ContentPage.Content>

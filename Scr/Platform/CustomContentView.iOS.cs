@@ -15,6 +15,8 @@ public class CustomContentView : Microsoft.Maui.Platform.ContentView
 		AddGestureRecognizer(new UITapGestureRecognizer(_stateButton.InvokeClicked));
 	}
 
+	public override bool CanBecomeFocused => true;
+
 	public override void TouchesMoved(NSSet touches, UIEvent? evt)
 	{
 		_stateButton.InvokeReleased();
