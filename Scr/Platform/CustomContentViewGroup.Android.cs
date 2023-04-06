@@ -13,53 +13,67 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		_stateButton = (StateButton)virtualView;
 
+		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 		Focusable = true;
-		Clickable = true;
+
+		Touch += (sender, te) =>
+		{
+			if (sender is not Android.Views.View view)
+			{
+				return;
+			}
+
+			switch (te?.Event?.Action)
+			{
+				case MotionEventActions.Down:
+					_rect = new Rect(view.Left, view.Top, view.Right, view.Bottom);
+
+					_stateButton.InvokePressed();
+					break;
+
+				case MotionEventActions.Up:
+					if (_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
+					{
+						_stateButton.InvokeReleased();
+						_stateButton.InvokeClicked();
+					}
+					else
+					{
+						_stateButton.InvokeReleased();
+					}
+					break;
+
+				case MotionEventActions.Cancel:
+					_stateButton.InvokeReleased();
+
+					break;
+
+				case MotionEventActions.Move:
+					if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
+					{
+						_stateButton.InvokeReleased();
+					}
+
+					break;
+			}
+		};
 	}
 
-	public override bool OnTouchEvent(MotionEvent? e)
+	class MyAccessibilityDelegate : AccessibilityDelegate
 	{
-		if(RootView is null)
+		public override void OnInitializeAccessibilityNodeInfo(Android.Views.View? host, AccessibilityNodeInfo? info)
 		{
-			return base.OnTouchEvent(e);
+			base.OnInitializeAccessibilityNodeInfo(host, info);
+
+			if (info is null)
+			{
+				return;
+			}
+
+			info.ClassName = "android.widget.Button";
+			info.Clickable = true;
 		}
-
-		switch (e?.Action)
-		{
-			case MotionEventActions.Down:
-				_rect = new Rect(RootView.Left, RootView.Top, RootView.Right, RootView.Bottom);
-				_stateButton.InvokePressed();
-				break;
-
-			case MotionEventActions.Up:
-				if (_rect.Contains(RootView.Left + (int)e.GetX(), RootView.Top + (int)e.GetY()))
-				{
-					_stateButton.InvokeReleased();
-					_stateButton.InvokeClicked();
-				}
-				else
-				{
-					_stateButton.InvokeReleased();
-				}
-				break;
-
-			case MotionEventActions.Cancel:
-				_stateButton.InvokeReleased();
-
-				break;
-
-			case MotionEventActions.Move:
-				if (!_rect.Contains(RootView.Left + (int)e.GetX(), RootView.Top + (int)e.GetY()))
-				{
-					_stateButton.InvokeReleased();
-				}
-
-				break;
-		}
-
-		return base.OnTouchEvent(e);
 	}
-
 	public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent? e)
 	{
 		if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
@@ -69,17 +83,5 @@ public class CustomContentViewGroup : ContentViewGroup
 		}
 
 		return base.OnKeyUp(keyCode, e);
-	}
-
-	public override void OnInitializeAccessibilityNodeInfo(AccessibilityNodeInfo? info)
-	{
-		if (info is not null)
-		{
-			info.Focusable = true;
-			info.Clickable = true;
-			info.ClassName = "android.widget.Button";
-		}
-
-		base.OnInitializeAccessibilityNodeInfo(info);
 	}
 }
