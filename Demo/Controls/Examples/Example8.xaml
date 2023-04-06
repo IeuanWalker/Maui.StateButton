@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example8"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
+    <stateButton:StateButton Grid.Column="0" Padding="20,20">
+        <stateButton:StateButton.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Offset="0.1" Color="#FC8806" />
+                <GradientStop Offset="1.0" Color="#7B46EB" />
+            </LinearGradientBrush>
+        </stateButton:StateButton.Background>
+        <stateButton:StateButton.StrokeShape>
+            <RoundRectangle CornerRadius="10" />
+        </stateButton:StateButton.StrokeShape>
+        <stateButton:StateButton.Shadow>
+            <Shadow Brush="#b3b3ff"
+                    Opacity="0.7"
+                    Radius="50"
+                    Offset="0,0" />
+        </stateButton:StateButton.Shadow>
+        <stateButton:StateButton.Triggers>
+            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                <Setter Property="Background">
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#e37903" />
+                        <GradientStop Offset="1.0" Color="#5216cf" />
+                    </LinearGradientBrush>
+                </Setter>
+            </Trigger>
+        </stateButton:StateButton.Triggers>
+        <Label FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               Text="Lets GOOOO!!!"
+               TextColor="White"
+               VerticalTextAlignment="Center" />
+    </stateButton:StateButton>
+</ContentView>

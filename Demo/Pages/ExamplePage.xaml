@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App.Pages.ExamplePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App.Controls.Examples;assembly=App"
+             Title="Examples"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView Padding="{StaticResource PagePadding}">
+            <VerticalStackLayout>
+                <controls:BackButton />
+
+                <Grid ColumnDefinitions="*,auto">
+                    <controls:CustomButton Grid.Column="0" Text="Apply" />
+                    <controls:Examle1 Grid.Column="1" />
+                </Grid>
+                <Border Style="{StaticResource divider}" />
+
+                <controls:Example2 />
+                <Border Style="{StaticResource divider}" />
+
+                <controls:Example3 />
+                <Border Style="{StaticResource divider}" />
+
+                <controls:Example4 />
+                <Border Style="{StaticResource divider}" />
+
+                <controls:Example5 />
+                <Border Style="{StaticResource divider}" />
+
+                <Grid ColumnDefinitions="*,auto,auto">
+                    <controls:Example6 Grid.Column="0" Text="Get Course" />
+                    <controls:Example7 Grid.Column="1" Icon="&#xf1e0;" />
+                    <controls:Example7 Grid.Column="2" Icon="&#xf004;" />
+                </Grid>
+                <Border Style="{StaticResource divider}" />
+
+                <controls:Example8 />
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

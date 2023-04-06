@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example4"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
+    <stateButton:StateButton Grid.Column="1"
+                             Margin="10,0,0,0"
+                             BackgroundColor="#F84994"
+                             HeightRequest="100"
+                             Stroke="#F84994"
+                             StrokeThickness="4"
+                             WidthRequest="100">
+
+        <stateButton:StateButton.Shadow>
+            <Shadow Brush="#313131"
+                    Opacity="0.2"
+                    Radius="40"
+                    Offset="10,10" />
+        </stateButton:StateButton.Shadow>
+        <stateButton:StateButton.StrokeShape>
+            <RoundRectangle CornerRadius="50" />
+        </stateButton:StateButton.StrokeShape>
+        <stateButton:StateButton.Triggers>
+            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Stroke" Value="#F84994" />
+            </Trigger>
+        </stateButton:StateButton.Triggers>
+        <Label FontFamily="FASolid900"
+               FontSize="35"
+               HorizontalTextAlignment="Center"
+               Text="&#xf004;"
+               TextColor="White"
+               VerticalTextAlignment="Center">
+            <Label.Triggers>
+                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                             TargetType="Label"
+                             Value="Pressed">
+                    <Setter Property="TextColor" Value="#F84994" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </stateButton:StateButton>
+</ContentView>

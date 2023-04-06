@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App.Pages.EventCommandPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:App.ViewModels;assembly=App"
+             xmlns:controls="clr-namespace:App.Controls.Examples;assembly=App"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton"
+             Title="Event command page">
+    <ContentPage.BindingContext>
+        <app:TestViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView Padding="{StaticResource PagePadding}">
+        <VerticalStackLayout>
+            <controls:BackButton />
+
+            <!-- Events -->
+            <Label Style="{StaticResource sectionHeading}" Text="Events" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Clicked" />
+            <controls:Example6 Clicked="StateButton_OnClicked" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Pressed" />
+            <controls:Example6 Pressed="StateButton_OnPressed" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Released" />
+            <controls:Example6 Released="StateButton_OnReleased" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="All" />
+            <controls:Example6 Clicked="StateButton_OnClicked"
+                               Pressed="StateButton_OnPressed"
+                               Released="StateButton_OnReleased"
+                               Text="Test" />
+
+            <Border Style="{StaticResource divider}" />
+
+            <!-- Commands -->
+            <Label Style="{StaticResource sectionHeading}" Text="Commands" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Clicked" />
+            <controls:Example6 ClickedCommand="{Binding ClickedCommand}" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Pressed" />
+            <controls:Example6 PressedCommand="{Binding PressedCommand}" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="Released" />
+            <controls:Example6 ReleasedCommand="{Binding ReleasedCommand}" Text="Test" />
+            <Label Style="{StaticResource sectionSubHeading}" Text="All" />
+            <controls:Example6 ClickedCommand="{Binding ClickedCommand}"
+                               PressedCommand="{Binding PressedCommand}"
+                               ReleasedCommand="{Binding ReleasedCommand}"
+                               Text="Test" />
+
+            <Border Style="{StaticResource divider}" />
+
+            <!-- Complex -->
+            <Label Style="{StaticResource sectionHeading}" Text="Complex" />
+            <stateButton:StateButton Clicked="Card_OnClicked"
+                                     HorizontalOptions="Fill"
+                                     Stroke="LightGray"
+                                     StrokeThickness="2">
+                <stateButton:StateButton.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </stateButton:StateButton.StrokeShape>
+                <stateButton:StateButton.Triggers>
+                    <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                        <Setter Property="Stroke" Value="Gray" />
+                    </Trigger>
+                </stateButton:StateButton.Triggers>
+                <stateButton:StateButton.Behaviors>
+                    <!--<xct:AnimationBehavior EventName="Clicked">
+                        <xct:AnimationBehavior.AnimationType>
+                            <xct:ShakeAnimation />
+                        </xct:AnimationBehavior.AnimationType>
+                    </xct:AnimationBehavior>-->
+                </stateButton:StateButton.Behaviors>
+                <stateButton:StateButton.Content>
+                    <StackLayout>
+                        <Label Margin="20"
+                               FontSize="26"
+                               HorizontalOptions="Center"
+                               Text="Test"
+                               TextColor="Black">
+                            <Label.Triggers>
+                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                             TargetType="Label"
+                                             Value="Pressed">
+                                    <Setter Property="FontAttributes" Value="Bold" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Image Source="https://instabug.com/blog/wp-content/uploads/2018/10/Oct_Articles_01_Xamarin.png" />
+                        <Label x:Name="Description"
+                               Margin="20,0"
+                               AutomationProperties.IsInAccessibleTree="True"
+                               FontSize="Default"
+                               HorizontalOptions="Center"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="3"
+                               Text="I'm baby vape jean shorts hammock air plant gluten-free thundercats, DIY kale chips master cleanse kickstarter vinyl cronut iceland. Coloring book cold-pressed cray authentic seitan. Snackwave bicycle rights ramps hoodie shaman readymade. Kitsch venmo hella pug, chillwave squid four dollar toast hashtag."
+                               TextColor="Black" />
+                        <Label Margin="20,0,20,10"
+                               AutomationProperties.IsInAccessibleTree="True"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End"
+                               Text="See more..."
+                               TextColor="Blue">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Button Margin="20,0"
+                                Clicked="Button_OnClicked"
+                                Text="XF button" />
+                        <stateButton:StateButton Margin="0,20,0,0"
+                                                 Padding="20,20"
+                                                 Clicked="NestButton_OnClicked"
+                                                 HorizontalOptions="Fill">
+                            <stateButton:StateButton.StrokeShape>
+                                <RoundRectangle CornerRadius="0" />
+                            </stateButton:StateButton.StrokeShape>
+                            <stateButton:StateButton.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0.1" Color="#015b66" />
+                                    <GradientStop Offset="1.0" Color="#259879" />
+                                </LinearGradientBrush>
+                            </stateButton:StateButton.Background>
+                            <stateButton:StateButton.Triggers>
+                                <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                                    <Setter Property="Background">
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                            <GradientStop Offset="0.1" Color="Red" />
+                                            <GradientStop Offset="1.0" Color="Orange" />
+                                        </LinearGradientBrush>
+                                    </Setter>
+                                </Trigger>
+                            </stateButton:StateButton.Triggers>
+
+                            <Label Text="Nested state button" TextColor="White" />
+                        </stateButton:StateButton>
+                    </StackLayout>
+                </stateButton:StateButton.Content>
+            </stateButton:StateButton>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

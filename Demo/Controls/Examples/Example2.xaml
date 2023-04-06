@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example2"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
+    <stateButton:StateButton Margin="10,0,0,0" Padding="20,20">
+        <stateButton:StateButton.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Offset="0.1" Color="#4C5CF6" />
+                <GradientStop Offset="1.0" Color="#7E51F2" />
+            </LinearGradientBrush>
+        </stateButton:StateButton.Background>
+        <stateButton:StateButton.Shadow>
+            <Shadow Brush="#313131"
+                    Opacity="0.2"
+                    Radius="40"
+                    Offset="10,10" />
+        </stateButton:StateButton.Shadow>
+        <stateButton:StateButton.StrokeShape>
+            <RoundRectangle CornerRadius="5" />
+        </stateButton:StateButton.StrokeShape>
+        <stateButton:StateButton.Triggers>
+            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                <Setter Property="Background">
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#4C5CF6" />
+                        <GradientStop Offset="1.0" Color="#6129ef" />
+                    </LinearGradientBrush>
+                </Setter>
+            </Trigger>
+        </stateButton:StateButton.Triggers>
+        <Grid ColumnDefinitions="*,auto"
+              HorizontalOptions="Fill"
+              RowDefinitions="auto,auto,auto">
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="15"
+                   Text="Earnings today"
+                   TextColor="White" />
+            <Border Grid.Column="1"
+                    Padding="10"
+                    BackgroundColor="#4B37B2"
+                    HorizontalOptions="End"
+                    Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5" />
+                </Border.StrokeShape>
+                <Label FontFamily="FASolid900"
+                       Text="&#xf4b9;"
+                       TextColor="White" />
+            </Border>
+
+            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                <Label Margin="0,3,0,0"
+                       FontSize="30"
+                       Text="$"
+                       TextColor="#9CAAFF"
+                       VerticalTextAlignment="Start" />
+                <Label FontSize="40"
+                       Text="1,421.56"
+                       TextColor="White"
+                       VerticalTextAlignment="Start" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Row="2"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,7,0,0">
+                <Border Padding="5"
+                        BackgroundColor="#4B37B2"
+                        HorizontalOptions="End"
+                        Stroke="Transparent">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Label FontSize="11"
+                           Text="+1.5%"
+                           TextColor="White" />
+                </Border>
+                <Label Margin="6,0,0,0"
+                       FontSize="12"
+                       Text="Higher earnings than usual"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </Grid>
+    </stateButton:StateButton>
+</ContentView>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example6"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <stateButton:StateButton Grid.Column="0"
+                                     BackgroundColor="#7B66FF"
+                                     Clicked="StateButton_Clicked"
+                                     ClickedCommand="{TemplateBinding ClickedCommand}"
+                                     ClickedCommandParameter="{TemplateBinding ClickedCommandParameter}"
+                                     HeightRequest="60"
+                                     HorizontalOptions="Fill"
+                                     Pressed="StateButton_Pressed"
+                                     PressedCommand="{TemplateBinding PressedCommand}"
+                                     PressedCommandParameter="{TemplateBinding PressedCommandParameter}"
+                                     Released="StateButton_Released"
+                                     ReleasedCommand="{TemplateBinding ReleasedCommand}"
+                                     ReleasedCommandParameter="{TemplateBinding ReleasedCommandParameter}">
+                <stateButton:StateButton.StrokeShape>
+                    <RoundRectangle CornerRadius="5" />
+                </stateButton:StateButton.StrokeShape>
+                <stateButton:StateButton.Triggers>
+                    <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                        <Setter Property="BackgroundColor" Value="#654dff" />
+                    </Trigger>
+                </stateButton:StateButton.Triggers>
+                <Label FontAttributes="Bold"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center"
+                       Text="{TemplateBinding Text}"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
+            </stateButton:StateButton>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>
