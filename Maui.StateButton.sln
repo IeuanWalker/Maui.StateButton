@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.XamlStyler = Settings.XamlStyler
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateButton", "Scr\StateButton.csproj", "{613A4A03-673B-4ABC-9AFE-082A98281EE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IeuanWalker.Maui.StateButton", "Scr\IeuanWalker.Maui.StateButton.csproj", "{613A4A03-673B-4ABC-9AFE-082A98281EE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "Demo\App.csproj", "{A3EA010F-13EE-4351-AC59-4F86336DB5F4}"
 EndProject

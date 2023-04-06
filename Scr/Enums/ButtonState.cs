@@ -1,4 +1,4 @@
-﻿namespace StateButton.Enums;
+﻿namespace IeuanWalker.Maui.StateButton.Enums;
 
 public enum ButtonState
 {
