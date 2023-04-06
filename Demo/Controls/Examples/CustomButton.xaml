@@ -7,7 +7,8 @@
         <ControlTemplate>
             <stateButton:StateButton Padding="20,20"
                                      BackgroundColor="#0071FF"
-                                     Clicked="StateButton_Clicked">
+                                     Clicked="StateButton_Clicked"
+                                     SemanticProperties.Description="{TemplateBinding Text}">
                 <stateButton:StateButton.StrokeShape>
                     <RoundRectangle CornerRadius="25" />
                 </stateButton:StateButton.StrokeShape>

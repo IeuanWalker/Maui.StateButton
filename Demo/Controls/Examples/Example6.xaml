@@ -5,7 +5,7 @@
              xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
     <ContentView.ControlTemplate>
         <ControlTemplate>
-            <stateButton:StateButton Grid.Column="0"
+            <stateButton:StateButton Grid.Column="0" 
                                      BackgroundColor="#7B66FF"
                                      Clicked="StateButton_Clicked"
                                      ClickedCommand="{TemplateBinding ClickedCommand}"
