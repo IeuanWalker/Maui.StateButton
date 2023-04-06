@@ -63,7 +63,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Scr\StateButton.csproj" />
+	  <ProjectReference Include="..\Scr\IeuanWalker.Maui.StateButton.csproj" />
 	</ItemGroup>
 
 

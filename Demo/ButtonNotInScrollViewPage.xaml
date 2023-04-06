@@ -2,7 +2,7 @@
 <ContentPage x:Class="App.ButtonNotInScrollViewPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:stateButton="clr-namespace:StateButton;assembly=StateButton"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton"
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout Padding="20">

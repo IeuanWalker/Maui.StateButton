@@ -1,9 +1,9 @@
-﻿using Microsoft.Maui.Platform;
+﻿using IeuanWalker.Maui.StateButton.Platform;
 
-namespace StateButton.Handler;
+namespace IeuanWalker.Maui.StateButton.Handler;
 public partial class StateButtonHandler
 {
-	protected override ContentViewGroup CreatePlatformView()
+	protected override CustomContentViewGroup CreatePlatformView()
 	{
 		base.CreatePlatformView();
 

@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 
-namespace StateButton.Handler;
+namespace IeuanWalker.Maui.StateButton.Platform;
 
 public class CustomContentView : Microsoft.Maui.Platform.ContentView
 {
