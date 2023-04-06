@@ -3,6 +3,7 @@ namespace App.Controls.Examples;
 public partial class CustomButton : ContentView
 {
 	public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(CustomButton), string.Empty);
+
 	public string Text
 	{
 		get => (string)GetValue(TextProperty);
@@ -10,6 +11,7 @@ public partial class CustomButton : ContentView
 	}
 
 	public event EventHandler? Clicked;
+
 	public CustomButton()
 	{
 		InitializeComponent();

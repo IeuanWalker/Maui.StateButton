@@ -1,7 +1,6 @@
 ﻿using Android.Content;
 using Android.Runtime;
 using Android.Views;
-using Android.Views.Accessibility;
 using Java.Lang;
 using Microsoft.Maui.Platform;
 using String = Java.Lang.String;

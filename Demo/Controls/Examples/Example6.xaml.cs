@@ -5,12 +5,15 @@ namespace App.Controls.Examples;
 public partial class Example6 : ContentView
 {
 	public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(CustomButton), string.Empty);
+
 	public string Text
 	{
 		get => (string)GetValue(TextProperty);
 		set => SetValue(TextProperty, value);
 	}
+
 	public static readonly BindableProperty AccessibilityHintProperty = BindableProperty.Create(nameof(AccessibilityHint), typeof(string), typeof(CustomButton), string.Empty);
+
 	public string AccessibilityHint
 	{
 		get => (string)GetValue(AccessibilityHintProperty);
@@ -102,7 +105,9 @@ public partial class Example6 : ContentView
 	}
 
 	public event EventHandler? Clicked;
+
 	public event EventHandler? Pressed;
+
 	public event EventHandler? Released;
 
 	public Example6()

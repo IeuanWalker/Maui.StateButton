@@ -1,5 +1,4 @@
-﻿using IeuanWalker.Maui.StateButton.Handler;
-using Microsoft.Maui.Handlers;
+﻿using Microsoft.Maui.Handlers;
 
 namespace IeuanWalker.Maui.StateButton.Handler;
 
