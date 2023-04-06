@@ -3,7 +3,6 @@ using StateButton.Enums;
 
 namespace StateButton;
 
-[ContentProperty(nameof(Content))]
 public partial class StateButton : Border
 {
 	#region Bindable Properties
@@ -136,7 +135,7 @@ public partial class StateButton : Border
 		InitializeComponent();
 	}
 
-	internal void InternalPressed()
+	internal void InvokePressed()
 	{
 		if (!IsEnabled)
 		{
@@ -149,7 +148,7 @@ public partial class StateButton : Border
 		State = ButtonState.Pressed;
 	}
 
-	internal void InternalReleased()
+	internal void InvokeReleased()
 	{
 		if (!IsEnabled)
 		{
@@ -167,7 +166,7 @@ public partial class StateButton : Border
 		State = ButtonState.NotPressed;
 	}
 
-	internal void InternalClicked()
+	internal void InvokeClicked()
 	{
 		if (!IsEnabled)
 		{

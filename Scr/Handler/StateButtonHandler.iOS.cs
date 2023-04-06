@@ -5,6 +5,6 @@ public partial class StateButtonHandler
 	{
 		base.CreatePlatformView();
 
-		return new CustomContentView();
+		return new CustomContentView(VirtualView);
 	}
 }
