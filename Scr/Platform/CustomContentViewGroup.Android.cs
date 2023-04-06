@@ -16,6 +16,7 @@ public class CustomContentViewGroup : ContentViewGroup
 		SetAccessibilityDelegate(new MyAccessibilityDelegate());
 
 		Focusable = true;
+		Clickable = true;
 
 		Touch += (sender, te) =>
 		 {
@@ -65,6 +66,7 @@ public class CustomContentViewGroup : ContentViewGroup
 		if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
 		{
 			_stateButton.InvokeClicked();
+			return true;
 		}
 
 		return base.OnKeyUp(keyCode, e);
