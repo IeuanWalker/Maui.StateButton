@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example5"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
+    <stateButton:StateButton Grid.Column="1"
+                             Margin="10,0,0,0"
+                             Padding="20,20"
+                             BackgroundColor="#72047E"
+                             HorizontalOptions="Center"
+                             Stroke="#FF0071"
+                             StrokeThickness="5">
+
+        <stateButton:StateButton.Shadow>
+            <Shadow Brush="#FF0071"
+                    Opacity="0.4"
+                    Radius="60"
+                    Offset="0,0" />
+        </stateButton:StateButton.Shadow>
+        <stateButton:StateButton.StrokeShape>
+            <RoundRectangle CornerRadius="5" />
+        </stateButton:StateButton.StrokeShape>
+        <stateButton:StateButton.Triggers>
+            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                <Setter Property="BackgroundColor" Value="#FF0071" />
+            </Trigger>
+        </stateButton:StateButton.Triggers>
+        <Label FontAttributes="Bold"
+               FontSize="20"
+               Text="New game"
+               TextColor="#FF0071"
+               TextTransform="Uppercase">
+            <Label.Triggers>
+                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                             TargetType="Label"
+                             Value="Pressed">
+                    <Setter Property="TextColor" Value="#72047E" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </stateButton:StateButton>
+</ContentView>

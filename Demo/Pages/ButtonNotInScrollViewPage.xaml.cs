@@ -1,4 +1,4 @@
-﻿namespace App;
+﻿namespace App.Pages;
 
 public partial class ButtonNotInScrollViewPage : ContentPage
 {

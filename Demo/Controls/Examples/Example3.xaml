@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="App.Controls.Examples.Example3"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <stateButton:StateButton Margin="10,0,0,0"
+                             Padding="20,20"
+                             BackgroundColor="#13C77D">
+
+        <stateButton:StateButton.Shadow>
+            <Shadow Brush="#313131"
+                    Opacity="0.2"
+                    Radius="40"
+                    Offset="10,10" />
+        </stateButton:StateButton.Shadow>
+        <stateButton:StateButton.StrokeShape>
+            <RoundRectangle CornerRadius="25" />
+        </stateButton:StateButton.StrokeShape>
+        <stateButton:StateButton.Triggers>
+            <Trigger TargetType="stateButton:StateButton" Property="State" Value="Pressed">
+                <Setter Property="BackgroundColor" Value="#10a366" />
+            </Trigger>
+        </stateButton:StateButton.Triggers>
+        <Grid ColumnDefinitions="auto,*"
+              HorizontalOptions="Fill"
+              RowDefinitions="auto,auto">
+
+            <toolkit:AvatarView Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Margin="0,0,20,0"
+                                ImageSource="https://avatars.githubusercontent.com/u/6544051?v=4" />
+
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Text="Ieuan Walker"
+                   TextColor="White" />
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Text="Creator"
+                   TextColor="#9FE9C8" />
+        </Grid>
+    </stateButton:StateButton>
+</ContentView>
