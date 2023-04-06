@@ -2,7 +2,9 @@
 using Android.Runtime;
 using Android.Views;
 using Android.Views.Accessibility;
+using Java.Lang;
 using Microsoft.Maui.Platform;
+using String = Java.Lang.String;
 
 namespace StateButton.Handler;
 public class CustomContentViewGroup : ContentViewGroup
@@ -13,7 +15,7 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		_stateButton = (StateButton)virtualView;
 
-		SetAccessibilityDelegate(new MyAccessibilityDelegate());
+		//! important - this is what makes the switch accessible via keyboard navigation
 		Focusable = true;
 
 		Touch += (sender, te) =>
@@ -59,21 +61,19 @@ public class CustomContentViewGroup : ContentViewGroup
 		};
 	}
 
-	class MyAccessibilityDelegate : AccessibilityDelegate
+	public override ICharSequence? AccessibilityClassNameFormatted => new String("android.widget.Button");
+
+	public override void OnInitializeAccessibilityNodeInfo(AccessibilityNodeInfo? info)
 	{
-		public override void OnInitializeAccessibilityNodeInfo(Android.Views.View? host, AccessibilityNodeInfo? info)
+		if (info is not null)
 		{
-			base.OnInitializeAccessibilityNodeInfo(host, info);
-
-			if (info is null)
-			{
-				return;
-			}
-
-			info.ClassName = "android.widget.Button";
+			info.Focusable = true;
 			info.Clickable = true;
 		}
+
+		base.OnInitializeAccessibilityNodeInfo(info);
 	}
+
 	public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent? e)
 	{
 		if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
