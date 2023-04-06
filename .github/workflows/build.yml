@@ -10,7 +10,7 @@ on:
     
 env:
   NET_VERSION: 7.0.101
-  PROJECT_PATH: 'Scr/StateButton.csproj'
+  PROJECT_PATH: 'Scr/IeuanWalker.Maui.StateButton.csproj'
   NUGET_PATH: './**/IeuanWalker.Maui.StateButton.1.0.0.nupkg'
 
 jobs:
