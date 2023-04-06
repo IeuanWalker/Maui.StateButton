@@ -10,6 +10,12 @@ public partial class Example6 : ContentView
 		get => (string)GetValue(TextProperty);
 		set => SetValue(TextProperty, value);
 	}
+	public static readonly BindableProperty AccessibilityHintProperty = BindableProperty.Create(nameof(AccessibilityHint), typeof(string), typeof(CustomButton), string.Empty);
+	public string AccessibilityHint
+	{
+		get => (string)GetValue(AccessibilityHintProperty);
+		set => SetValue(AccessibilityHintProperty, value);
+	}
 
 	/// <summary>
 	/// Backing BindableProperty for the <see cref="ClickedCommand"/> property.

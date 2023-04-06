@@ -17,7 +17,9 @@
                                      PressedCommandParameter="{TemplateBinding PressedCommandParameter}"
                                      Released="StateButton_Released"
                                      ReleasedCommand="{TemplateBinding ReleasedCommand}"
-                                     ReleasedCommandParameter="{TemplateBinding ReleasedCommandParameter}">
+                                     ReleasedCommandParameter="{TemplateBinding ReleasedCommandParameter}"
+                                     SemanticProperties.Description="{TemplateBinding Text}"
+                                     SemanticProperties.Hint="{TemplateBinding AccessibilityHint}">
                 <stateButton:StateButton.StrokeShape>
                     <RoundRectangle CornerRadius="5" />
                 </stateButton:StateButton.StrokeShape>

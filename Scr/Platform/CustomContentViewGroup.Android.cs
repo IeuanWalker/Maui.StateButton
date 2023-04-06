@@ -15,8 +15,8 @@ public class CustomContentViewGroup : ContentViewGroup
 	{
 		_stateButton = (StateButton)virtualView;
 
-		//! important - this is what makes the switch accessible via keyboard navigation
-		Focusable = true;
+		Clickable = true;
+		Click += (sender, e) => _stateButton.InvokeClicked();
 
 		Touch += (sender, te) =>
 		{
@@ -62,17 +62,6 @@ public class CustomContentViewGroup : ContentViewGroup
 	}
 
 	public override ICharSequence? AccessibilityClassNameFormatted => new String("android.widget.Button");
-
-	public override void OnInitializeAccessibilityNodeInfo(AccessibilityNodeInfo? info)
-	{
-		if (info is not null)
-		{
-			info.Focusable = true;
-			info.Clickable = true;
-		}
-
-		base.OnInitializeAccessibilityNodeInfo(info);
-	}
 
 	public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent? e)
 	{
