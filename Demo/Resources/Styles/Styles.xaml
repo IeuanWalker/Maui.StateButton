@@ -16,6 +16,13 @@
         <Setter Property="HeightRequest" Value="5" />
     </Style>
     <Style x:Key="sectionHeading" TargetType="Label">
+        <Setter Property="FontSize" Value="Header" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColour}" />
+    </Style>
+    <Style x:Key="sectionSubHeading" TargetType="Label">
+        <Setter Property="FontSize" Value="Caption" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColour}" />

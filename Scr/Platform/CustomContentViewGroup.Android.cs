@@ -14,6 +14,8 @@ public class CustomContentViewGroup : ContentViewGroup
 		_stateButton = (StateButton)virtualView;
 
 		Clickable = true;
+
+		//! important this click is only for accessibility
 		Click += (sender, e) => _stateButton.InvokeClicked();
 
 		Touch += (sender, te) =>
