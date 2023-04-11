@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Java.Lang;
 using Microsoft.Maui.Platform;
@@ -61,15 +60,4 @@ public class CustomContentViewGroup : ContentViewGroup
 	}
 
 	public override ICharSequence? AccessibilityClassNameFormatted => new String("android.widget.Button");
-
-	public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent? e)
-	{
-		if (keyCode == Keycode.Space || keyCode == Keycode.Enter)
-		{
-			_stateButton.InvokeClicked();
-			return true;
-		}
-
-		return base.OnKeyUp(keyCode, e);
-	}
 }
