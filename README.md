@@ -42,15 +42,15 @@ builder
 | Event | What it does |
 |---|---|
 | Clicked | Triggerd when the button is pressed and released |
-| Pressed | Triggerd when the button is pressed |
-| Released | Triggerd when the button is released |
+| Pressed | Triggerd when the button is pressed. _Not triggered when using screenreader or keyboard navigation_  |
+| Released | Triggerd when the button is released. _Not triggered when using screenreader or keyboard navigation_  |
 
 ### Commands
 | Command | What it does |
 |---|---|
 | ClickedCommand | Triggerd when the button is pressed and released |
-| PressedCommand | Triggerd when the button is pressed |
-| ReleasedCommand | Triggerd when the button is released |
+| PressedCommand | Triggerd when the button is pressed. _Not triggered when using screenreader or keyboard navigation_ |
+| ReleasedCommand | Triggerd when the button is released. _Not triggered when using screenreader or keyboard navigation_ |
 
 
 ## How to style the button for different states
