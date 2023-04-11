@@ -27,7 +27,6 @@
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColour}" />
     </Style>
-
     <Style x:Key="expander" TargetType="Border">
         <Setter Property="Padding" Value="10" />
         <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColour}" />
