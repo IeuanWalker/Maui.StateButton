@@ -1,124 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;</TargetFrameworks>
-		<OutputType>Exe</OutputType>
-		<RootNamespace>App</RootNamespace>
-		<UseMaui>true</UseMaui>
-		<SingleProject>true</SingleProject>
-		<ImplicitUsings>enable</ImplicitUsings>
+  <PropertyGroup>
+    <TargetFrameworks>net9.0-android;net9.0-ios;</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>App</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- Display name -->
+    <ApplicationTitle>StateButton demo</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>IeuanWalker.Demo.StateButton</ApplicationId>
+    <ApplicationIdGuid>78B8245A-7B57-41B6-A3BC-DA159DC85DE2</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
 
-		<!-- Display name -->
-		<ApplicationTitle>StateButton demo</ApplicationTitle>
-
-		<!-- App Identifier -->
-		<ApplicationId>IeuanWalker.Demo.StateButton</ApplicationId>
-		<ApplicationIdGuid>78B8245A-7B57-41B6-A3BC-DA159DC85DE2</ApplicationIdGuid>
-
-		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
-
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
-	  <ProvisioningType>automatic</ProvisioningType>
-	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
-	  <CodesignKey>iPhone Distribution: CARDIFF COUNTY COUNCIL (RHSME4M265)</CodesignKey>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
-	  <CodesignKey>Apple Development: Ieuan Walker (R4SVVV33HW)</CodesignKey>
-	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
-		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-
-		<!-- Custom Fonts -->
-		<MauiFont Include="Resources\Fonts\*" />
-
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Scr\IeuanWalker.Maui.StateButton.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Pages\AccessibilityTestPage.xaml.cs">
-	    <DependentUpon>AccessibilityTestPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\EventCommandPage.xaml.cs">
-	    <DependentUpon>EventCommandPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-
-	<ItemGroup>
-	  <MauiXaml Update="Controls\Examples\BackButton.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\CustomButton.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Examle1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example2.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example3.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example4.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example5.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example6.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example7.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Controls\Examples\Example8.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\AccessibilityTestPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ButtonNotInScrollViewPage.xaml">
-	    <Generator></Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ExamplePage.xaml">
-	    <Generator></Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\EventCommandPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
-</Project>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scr\IeuanWalker.Maui.StateButton.csproj" />
+  </ItemGroup>
+ </Project>
