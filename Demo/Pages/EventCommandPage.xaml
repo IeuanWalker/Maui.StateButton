@@ -5,7 +5,8 @@
              xmlns:app="clr-namespace:App.ViewModels;assembly=App"
              xmlns:controls="clr-namespace:App.Controls.Examples;assembly=App"
              xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton"
-             Title="Event command page">
+             Title="Event command page"
+             x:DataType="app:TestViewModel">
     <ContentPage.BindingContext>
         <app:TestViewModel />
     </ContentPage.BindingContext>
@@ -74,7 +75,8 @@
                                Text="Test"
                                TextColor="Black">
                             <Label.Triggers>
-                                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                                <DataTrigger x:DataType="stateButton:StateButton"
+                                             Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
                                              TargetType="Label"
                                              Value="Pressed">
                                     <Setter Property="FontAttributes" Value="Bold" />

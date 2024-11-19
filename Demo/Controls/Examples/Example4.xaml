@@ -33,7 +33,8 @@
                TextColor="White"
                VerticalTextAlignment="Center">
             <Label.Triggers>
-                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                <DataTrigger x:DataType="stateButton:StateButton"
+                             Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
                              TargetType="Label"
                              Value="Pressed">
                     <Setter Property="TextColor" Value="#F84994" />

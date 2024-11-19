@@ -2,9 +2,10 @@
 <ContentView x:Class="App.Controls.Examples.Example6"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:App.Controls.Examples"
              xmlns:stateButton="clr-namespace:IeuanWalker.Maui.StateButton;assembly=IeuanWalker.Maui.StateButton">
     <ContentView.ControlTemplate>
-        <ControlTemplate>
+        <ControlTemplate x:DataType="control:Example6">
             <stateButton:StateButton Grid.Column="0"
                                      BackgroundColor="#7B66FF"
                                      Clicked="StateButton_Clicked"

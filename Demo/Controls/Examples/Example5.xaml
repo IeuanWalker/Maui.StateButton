@@ -31,7 +31,8 @@
                TextColor="#FF0071"
                TextTransform="Uppercase">
             <Label.Triggers>
-                <DataTrigger Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
+                <DataTrigger x:DataType="stateButton:StateButton"
+                             Binding="{Binding Source={RelativeSource AncestorType={x:Type stateButton:StateButton}}, Path=State}"
                              TargetType="Label"
                              Value="Pressed">
                     <Setter Property="TextColor" Value="#72047E" />
