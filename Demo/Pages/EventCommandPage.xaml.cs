@@ -26,10 +26,10 @@ public partial class EventCommandPage : ContentPage
 	{
 		Label? textExtender = sender as Label;
 
-		if (Description.MaxLines == int.MaxValue)
+		if(Description.MaxLines == int.MaxValue)
 		{
 			Description.MaxLines = 3;
-			if (textExtender is not null)
+			if(textExtender is not null)
 			{
 				textExtender.Text = "See more..";
 			}
@@ -37,7 +37,7 @@ public partial class EventCommandPage : ContentPage
 		else
 		{
 			Description.MaxLines = int.MaxValue;
-			if (textExtender is not null)
+			if(textExtender is not null)
 			{
 				textExtender.Text = "See less...";
 			}

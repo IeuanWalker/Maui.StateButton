@@ -20,12 +20,12 @@ public class CustomContentViewGroup : ContentViewGroup
 
 		Touch += (sender, te) =>
 		{
-			if (sender is not Android.Views.View view)
+			if(sender is not Android.Views.View view)
 			{
 				return;
 			}
 
-			switch (te?.Event?.Action)
+			switch(te?.Event?.Action)
 			{
 				case MotionEventActions.Down:
 					_rect = new Rect(view.Left, view.Top, view.Right, view.Bottom);
@@ -34,7 +34,7 @@ public class CustomContentViewGroup : ContentViewGroup
 					break;
 
 				case MotionEventActions.Up:
-					if (_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
+					if(_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					{
 						_stateButton.InvokeReleased();
 						_stateButton.InvokeClicked();
@@ -51,7 +51,7 @@ public class CustomContentViewGroup : ContentViewGroup
 					break;
 
 				case MotionEventActions.Move:
-					if (!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
+					if(!_rect.Contains(view.Left + (int)te.Event.GetX(), view.Top + (int)te.Event.GetY()))
 					{
 						_stateButton.InvokeReleased();
 					}
