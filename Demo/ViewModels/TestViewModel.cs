@@ -26,7 +26,7 @@ public partial class TestViewModel
 
 	static async Task Alert(string title, string message)
 	{
-		Page? mainpage = Application.Current?.MainPage;
+		Page? mainpage = Application.Current?.Windows[0].Page;
 		if (mainpage is not null)
 		{
 			await mainpage.DisplayAlert(title, message, "OK");
