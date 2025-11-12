@@ -1,4 +1,4 @@
-name: Release
+﻿name: Release
 
 on:
   release:
@@ -44,5 +44,12 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.1.1
       
+      # Get a short-lived NuGet API key
+    - name: NuGet login (OIDC → temp API key)
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: Ieuan
+
     - name: Publish
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}} 
