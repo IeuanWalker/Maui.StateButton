@@ -10,7 +10,10 @@ env:
   NUGET_PATH: './**/IeuanWalker.Maui.StateButton.${{ github.event.release.tag_name }}.nupkg'
 
 jobs:
-  build:
+  build-and-publish:
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
+
     runs-on: windows-latest
 
     steps:
