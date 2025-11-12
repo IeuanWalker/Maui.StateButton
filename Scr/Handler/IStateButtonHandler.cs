@@ -2,6 +2,4 @@
 
 namespace IeuanWalker.Maui.StateButton.Handler;
 
-public interface IStateButtonHandler : IBorderHandler
-{
-}
+public interface IStateButtonHandler : IBorderHandler;
