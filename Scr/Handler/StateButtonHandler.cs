@@ -2,6 +2,4 @@
 
 namespace IeuanWalker.Maui.StateButton.Handler;
 
-public partial class StateButtonHandler : BorderHandler, IStateButtonHandler
-{
-}
+public partial class StateButtonHandler : BorderHandler, IStateButtonHandler;
