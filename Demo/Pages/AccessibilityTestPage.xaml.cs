@@ -9,16 +9,16 @@ public partial class AccessibilityTestPage : ContentPage
 
 	async void Button_Clicked(object sender, EventArgs e)
 	{
-		await DisplayAlert("Clicked", string.Empty, "OK");
+		await DisplayAlertAsync("Clicked", string.Empty, "OK");
 	}
 
 	async void Example6_Pressed(object sender, EventArgs e)
 	{
-		await DisplayAlert("Pressed", string.Empty, "OK");
+		await DisplayAlertAsync("Pressed", string.Empty, "OK");
 	}
 
 	async void Example6_Released(object sender, EventArgs e)
 	{
-		await DisplayAlert("Release", string.Empty, "OK");
+		await DisplayAlertAsync("Release", string.Empty, "OK");
 	}
 }

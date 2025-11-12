@@ -1,9 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 
 namespace App.ViewModels;
 
-[INotifyPropertyChanged]
 public partial class TestViewModel
 {
 	[RelayCommand]
@@ -27,9 +25,9 @@ public partial class TestViewModel
 	static async Task Alert(string title, string message)
 	{
 		Page? mainPage = Application.Current?.Windows[0].Page;
-		if(mainPage is not null)
+		if (mainPage is not null)
 		{
-			await mainPage.DisplayAlert(title, message, "OK");
+			await mainPage.DisplayAlertAsync(title, message, "OK");
 		}
 	}
 }
