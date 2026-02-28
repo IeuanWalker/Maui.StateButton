@@ -12,7 +12,7 @@ This is possible as it acts as a wrapper to your XAML and provides you the event
 
 It's also **100% accessible** with each platform seeing/ treating the control as a native button.
 
-Check out the [examples](https://github.com/IeuanWalker/Maui.StateButton/tree/master/Demo/Controls/Examplesl), for a bunch of different designs -
+Check out the [examples](https://github.com/IeuanWalker/Maui.StateButton/tree/master/Demo/Controls/Examples), for a bunch of different designs -
 
 ![Example gif](/Example.gif)
 
